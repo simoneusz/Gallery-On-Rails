@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :admins, controllers: {
+    sessions: "admin/sessions",
+    registration: "admin/registration"
+  }
+  devise_for :users, controllers: {
+    sessions: "users/sessions"
+  }
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
