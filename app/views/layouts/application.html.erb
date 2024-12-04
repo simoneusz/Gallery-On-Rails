@@ -18,12 +18,28 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%# stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'pages/navbar' %>
+    <div class="container">
+      <% if flash[:notice]%>
+        <div class="alert alert-info" role="alert">
+          <%= notice %>
+        </div>
+      <% end%>
+      <% if flash[:alert]%>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end%>
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag 'application', type: 'module', 'data-turbo-track': 'reload' %>
   </body>
 </html>
