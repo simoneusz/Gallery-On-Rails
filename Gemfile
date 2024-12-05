@@ -67,3 +67,6 @@ end
 
 gem "devise", "~> 4.9"
 gem "jquery-rails"
+gem "friendly_id", "~> 5.5.0"
+gem "kaminari"
+gem "carrierwave", "~> 3.0"
