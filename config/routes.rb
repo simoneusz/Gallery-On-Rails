@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get "images/show"
+  get "images/create"
+  get "images/destroy"
+  resources :categories
   devise_for :admins, controllers: {
     sessions: "admin/sessions"
 
