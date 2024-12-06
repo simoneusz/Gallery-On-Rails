@@ -3,9 +3,9 @@
 <ul>
   <% @categories.each do |category| %>
     <li>
-    <%= link_to category.title, category %>
+    <%= link_to category.title, user_category_path(category.user, category) %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Create a category", new_category_path %>
+<%= link_to "Create a category", new_user_category_path(@user) %>
