@@ -1,12 +1,28 @@
-<h1><%= @category.title %></h1>
-<p><%= @category.description %></p>
-
-<% @category.images.each do |image| %>
-  <div class="image-card">
-    <p><%= image.title %></p>
-    <%= image_tag image.image.url, alt: image.title, class: "img-thumbnail" %>
-    
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 text-center">
+      <h1 class="display-4"><%= @category.title %></h1>
+      <p class="lead text-muted"><%= @category.description %></p>
+    </div>
   </div>
-<% end %>
+  
+  <div class="row mt-4">
+    <% @category.images.each do |image| %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <%= image_tag image.image.url, alt: image.title, class: "card-img-top img-thumbnail hover-zoom" %>
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= image.title %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="row justify-content-center mt-4">
+    <div class="col-auto">
+      <%= link_to "Add Image", new_user_category_image_path(@user, @category), class: "btn btn-secondary btn-lg" %>
+    </div>
+  </div>
 
-<%= link_to "Add Image", new_user_category_image_path(@user, @category), class: "btn btn-secondary" %>
+</div>
