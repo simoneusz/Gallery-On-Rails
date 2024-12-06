@@ -1,0 +1,25 @@
+<%= form_with model: [@category, @image], method: :post, multipart: true, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Image title" %>
+    <%= form.text_field :title, required: true %>
+    <% @image.errors.full_messages_for(:title).each do |message| %>
+      <div class="alert alert-warning mt-2" role="alert">
+        <div><%= message %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :image, "Image" %>
+    <%= form.file_field :image, required: true %>
+     <% @image.errors.full_messages_for(:image).each do |message| %>
+      <div class="alert alert-warning mt-2" role="alert">
+        <div><%= message %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Загрузить" %>
+  </div>
+<% end %>

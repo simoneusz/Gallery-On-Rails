@@ -4,13 +4,10 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    # @categories = Category.includes(:images).order(created_at: :desc).page(params[:page]).per(5)
-    # @categories = Kaminari.paginate_array(Category.first(10)).page(params[:page])
     @categories = @user.categories
   end
 
   def show
-    # @images = @category.page(params[:page]).per(5)
   end
 
   def new
@@ -26,21 +23,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
-  # def set_category
-  #   @category = Category.friendly.find(params[:id])
-  # end
-  #
   def set_user
     @user = User.find(params[:user_id])
   end
@@ -50,6 +34,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:title, :description)
+    params.require(:category).permit(:title, :description, :image)
   end
 end

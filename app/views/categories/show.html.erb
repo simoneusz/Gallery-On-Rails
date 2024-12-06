@@ -1,7 +1,12 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
-
 <h1><%= @category.title %></h1>
+<p><%= @category.description %></p>
 
-<p><%= @category.description.truncate(50) %></p>
+<% @category.images.each do |image| %>
+  <div class="image-card">
+    <p><%= image.title %></p>
+    <%= image_tag image.image.url, alt: image.title, class: "img-thumbnail" %>
+    
+  </div>
+<% end %>
 
+<%= link_to "Add Image", new_user_category_image_path(@user, @category), class: "btn btn-secondary" %>

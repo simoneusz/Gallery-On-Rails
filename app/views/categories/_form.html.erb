@@ -1,27 +1,25 @@
-<%= form_with model: [@user, category] do |form| %>
-  <div>
+<%= form_with model: [@user, @category], local: true, multipart: true do |form| %>
+  <div class="form-group">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% category.errors.full_messages_for(:title).each do |message| %>
+    <%= form.text_field :title, class: "form-control" %>
+    <% @category.errors.full_messages_for(:title).each do |message| %>
       <div class="alert alert-warning mt-2" role="alert">
         <div><%= message %></div>
       </div>
     <% end %>
-  </div>  
+  </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
-    <% category.errors.full_messages_for(:description).each do |message| %>
-        <div class="alert alert-warning mt-2" role="alert">
-          <div><%= message %></div>
-        </div>
+    <%= form.text_area :description, class: "form-control" %>
+    <% @category.errors.full_messages_for(:description).each do |message| %>
+      <div class="alert alert-warning mt-2" role="alert">
+        <div><%= message %></div>
+      </div>
     <% end %>
   </div>
-  <div>
-    <%= form.file_field :avatars, multiple: true %>
-  </div>
-  <div>
-    <%= form.submit %>
+
+  <div class="form-group">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

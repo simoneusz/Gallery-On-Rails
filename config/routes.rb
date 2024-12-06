@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   root "pages#home"
-  # get "images/show"
-  # get "images/create"
-  # get "images/destroy"
-  # resources :categories
   devise_for :admins, controllers: {
     sessions: "admin/sessions"
 
@@ -12,8 +8,13 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
+  resources :categories do
+    resources :images, only: [ :new, :create, :show, :destroy ]
+  end
   resources :users, only: [ :show ] do
-    resources :categories
+    resources :categories do
+      resources :images, only: [ :new, :create, :show, :destroy ]
+    end
   end
 
 

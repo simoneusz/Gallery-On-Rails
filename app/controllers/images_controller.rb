@@ -1,19 +1,16 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [ :show, :destroy ]
+  before_action :set_category
 
   def new
     @image = @category.images.new
   end
 
-  def show
-    @comments = @image.comments
-  end
-
   def create
-    @image = @category.images.new(image_params)
+    @image = @category.images.build(image_params)
+    @image.user = current_user
     if @image.save
-      redirect_to category_path(@category), notice: "Image successfully added."
+      redirect_to category_path(@category), notice: "Image successfully uploaded."
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,10 +19,10 @@ class ImagesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find(params[:category_id])
+    @category = Category.friendly.find(params[:category_id])
   end
 
   def image_params
-    params.require(:image).permit(:image, :description)
+    params.require(:image).permit(:title, :image)
   end
 end
