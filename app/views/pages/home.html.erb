@@ -1,0 +1,8 @@
+<h1>Top 5 categories</h1>
+
+<% @top_categories.each do |category| %>
+  <div>
+    <h2><%= category.title %></h2>
+    <p>Likes: <%= category.likes_count %></p>
+  </div>
+<% end %>
