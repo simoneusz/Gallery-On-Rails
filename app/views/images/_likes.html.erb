@@ -1,4 +1,6 @@
-<%= tag.div id: dom_id(image, :likes) do %>
-    <%= button_to (image.liked_by?(current_user) ? "Unlike" : "Like") , image_like_path(image), method: :patch %>
-    <%= image.likes_count %>
+<%= tag.div id: dom_id(image, :likes), class: "d-flex" do %>
+  <%= button_to image_like_path(image), method: :patch, class: "border-0 bg-transparent svg-icon" do %>
+    <%= like_button_icon(image) %>
+  <% end %>
+  <p><%= image.likes_count %></p>
 <% end %>
