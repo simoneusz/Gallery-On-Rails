@@ -5,7 +5,7 @@
   </div>
 
   <div class="list-group">
-    <% @categories.each do |category| %>
+    <% @categories.reverse.each do |category| %>
       <a href="<%= user_category_path(category.user, category) %>" class="list-group-item list-group-item-action">
         <h5 class="mb-1"><%= category.title %></h5>
         <p class="mb-1 text-muted"><%= truncate(category.description, length: 100) %></p>
