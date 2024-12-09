@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   resources :categories do
     resources :images, only: [ :new, :create ]
   end
+
+  resources :images do
+    resource :like, module: :images
+  end
+
   resources :users, only: [ :show ] do
     resources :categories do
       resources :images, only: [ :new, :create ]

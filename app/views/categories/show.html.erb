@@ -14,6 +14,9 @@
           <div class="card-body">
             <h5 class="card-title text-center"><%= image.title %></h5>
           </div>
+          <div>
+            <%= render partial: 'images/likes', locals: {image: image} %>
+          </div>
         </div>
       </div>
     <% end %>

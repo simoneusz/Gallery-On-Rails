@@ -1,0 +1,4 @@
+<%= tag.div id: dom_id(image, :likes) do %>
+    <%= button_to (image.liked_by?(current_user) ? "Unlike" : "Like") , image_like_path(image), method: :patch %>
+    <%= image.likes_count %>
+<% end %>
