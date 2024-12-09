@@ -10,7 +10,6 @@ class Images::LikesController < ApplicationController
     else
       @image.like(current_user)
     end
-    logger.info("DOMID HERER ERE RE REVREVR" + dom_id(@image))
     respond_to do |format|
       format.turbo_stream {
         render turbo_stream: turbo_stream.replace(dom_id(@image, :likes), partial: "images/likes", locals: { image: @image })
