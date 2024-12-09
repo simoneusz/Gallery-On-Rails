@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   resources :categories do
-    resources :images, only: [ :new, :create, :show, :destroy ]
+    resources :images, only: [ :new, :create ]
   end
   resources :users, only: [ :show ] do
     resources :categories do
-      resources :images, only: [ :new, :create, :show, :destroy ]
+      resources :images, only: [ :new, :create ]
     end
   end
 
