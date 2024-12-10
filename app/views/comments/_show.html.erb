@@ -2,22 +2,21 @@
   <h2>Comments:</h2>
   <% category.comments.each do |comment| %>
   <div>
-      <p><strong><%= comment.user.email %>:</strong> <%= comment.content %></p>
+    <p><strong><%= comment.user.email %>:</strong> <%= comment.content %></p>
   </div>
   <% end %>
 
-  <!-- Форма добавления комментария -->
   <% if user_signed_in? %>
   <%= form_with(model: [category, category.comments.new], local: true) do |form| %>
-      <div>
-      <%= form.label :content, "Your Comment" %>
-      <%= form.text_area :content, rows: 4 %>
-      </div>
-      <div>
-      <%= form.submit "Post Comment" %>
-      </div>
+    <div>
+    <%= form.label :content, "Your Comment" %>
+    <%= form.text_area :content, rows: 4 %>
+    </div>
+    <div>
+    <%= form.submit "Post Comment" %>
+    </div>
   <% end %>
   <% else %>
-  <p>Please <%= link_to 'sign in', new_user_session_path %> to add a comment.</p>
+    <p>Please <%= link_to 'sign in', new_user_session_path %> to add a comment.</p>
   <% end %>
 </div>
