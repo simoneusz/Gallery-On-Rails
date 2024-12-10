@@ -1,16 +1,19 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>Categories</h1>
-    <%= link_to "Create a Category", new_user_category_path(@user), class: "btn btn-primary" %>
-  </div>
+    <%= link_to "Create a Category", new_category_path(@caregory), class: "btn btn-primary" %>
 
-  <div class="list-group">
-    <% @categories.reverse.each do |category| %>
-      <a href="<%= user_category_path(category.user, category) %>" class="list-group-item list-group-item-action">
-        <h5 class="mb-1"><%= category.title %></h5>
-        <p class="mb-1 text-muted"><%= truncate(category.description, length: 100) %></p>
-        <small>Created: <%= category.created_at.strftime("%d %B %Y") %></small>
-      </a>
-    <% end %>
+  </div>
+  <div class="list-body">
+    <div class="list-group">
+      <% @categories.reverse.each do |category| %>
+        <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action">
+          <h5 class="mb-1"><%= category.title %></h5>
+          <p class="mb-1 text-muted"><%= truncate(category.description, length: 100) %></p>
+          <p class="mb-1 text-muted"><%= pluralize(category.total_likes_count, "like") %></p>
+          <small>Created: <%= category.created_at.strftime("%d %B %Y") %></small>
+        </a>
+      <% end %>
+    </div>    
   </div>
 </div>

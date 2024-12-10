@@ -28,18 +28,9 @@
   </head>
 
   <body>
-    <%= render partial: 'pages/navbar' %>
+    <%= render partial: 'layouts/navbar' %>
     <div class="container">
-      <% if flash[:notice]%>
-        <div class="alert alert-info" role="alert">
-          <%= notice %>
-        </div>
-      <% end%>
-      <% if flash[:alert]%>
-        <div class="alert alert-danger" role="alert">
-          <%= alert %>
-        </div>
-      <% end%>
+      <%= render partial: "layouts/flash" %>
       <%= yield %>
     </div>
   </body>
