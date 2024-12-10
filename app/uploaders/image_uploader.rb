@@ -37,6 +37,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [ 50, 50 ]
   end
 
+  def size_range
+    1.byte..50.megabytes
+  end
+
   def filename
     "#{secure_token}.#{file.extension}" if original_filename
   end
