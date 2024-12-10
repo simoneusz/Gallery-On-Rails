@@ -7,4 +7,8 @@ class Category < ApplicationRecord
   # has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :images
   validates :title, presence: true, uniqueness: true
+
+  def total_likes_count
+    images.sum(:likes_count)
+  end
 end
