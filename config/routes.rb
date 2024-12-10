@@ -9,18 +9,14 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
   resources :categories do
-    resources :images, only: [ :new, :create ]
+    resources :images, only: [ :new, :create, :show ]
   end
 
   resources :images do
     resource :like, module: :images
   end
 
-  resources :users, only: [ :show ] do
-    resources :categories do
-      resources :images, only: [ :new, :create ]
-    end
-  end
+  resources :users, only: [ :show ]
 
 
   get "up" => "rails/health#show", as: :rails_health_check
