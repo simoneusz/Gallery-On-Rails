@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category
+  before_action :authorize_user
 
   def new
     @image = @category.images.new
@@ -20,6 +21,12 @@ class ImagesController < ApplicationController
 
   def set_category
     @category = Category.friendly.find(params[:category_id])
+  end
+
+  def authorize_user
+    unless @category.user == current_user
+      redirect_to root_path, alert: "You are not authorized to add images to this category."
+    end
   end
 
   def image_params

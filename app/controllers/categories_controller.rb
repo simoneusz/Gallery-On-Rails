@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      redirect_to user_categories_path(current_user), notice: "Category has been created."
+      redirect_to category_path(current_user), notice: "Category has been created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,11 +26,12 @@ class CategoriesController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find_by(id: params[:user_id])
+    @user = current_user if @user.nil?
   end
 
   def set_category
-    @category = @user.categories.friendly.find(params[:id])
+    @category = Category.friendly.find(params[:id])
   end
 
   def category_params
