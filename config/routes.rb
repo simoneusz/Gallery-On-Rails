@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }
   resources :categories do
     resources :images, only: [ :new, :create, :show ]
+    resources :comments, only: [ :create ]
   end
 
   resources :images do

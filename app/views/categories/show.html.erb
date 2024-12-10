@@ -25,6 +25,10 @@
       <%= link_to "Add Image", new_category_image_path(@category), class: "btn btn-secondary btn-lg" %>
     </div>
   </div>
+
+  <div class="row mt-4">
+    <%= render partial: 'comments/show', locals: { category: @category } %>
+  </div>
 </div>
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>

@@ -4,6 +4,7 @@ class Category < ApplicationRecord
 
   belongs_to :user
   has_many :images, -> { order(likes_count: :desc) }, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :images
   validates :title, presence: true, uniqueness: true
