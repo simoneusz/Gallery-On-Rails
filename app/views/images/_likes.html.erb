@@ -2,5 +2,5 @@
   <%= button_to image_like_path(image), method: :patch, class: "border-0 bg-transparent svg-icon" do %>
     <%= like_button_icon(image) %>
   <% end %>
-  <p><%= image.likes_count %></p>
+  <p class="text-dark"><%= image.likes_count %></p>
 <% end %>

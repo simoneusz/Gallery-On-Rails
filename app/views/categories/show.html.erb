@@ -8,13 +8,13 @@
   
   <div class="row mt-4" id="masonry-gallery" data-masonry='{"percentPosition": true }'>
     <% @images.each do |image| %>
-      <div class="masonry col-sm-4 col-md-4 mb-4">
+      <div class="masonry col-sm-4 col-md-4 p-1">
         <div class="card border-0 position-relative overflow-hidden">
+
+          <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
           
-          <%= image_tag image.image.url, alt: image.title, class: "card-img-top img-thumbnail" %>
-          
-          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75 text-white overlay-content">
-            <h5 class="card-title mb-2"><%= image.title %></h5>
+          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
+            <h5 class="card-title text-dark mb-2"><%= image.title %></h5>
             <div class="d-flex justify-content-center">
               <%= render partial: 'images/likes', locals: { image: image } %>
             </div>
