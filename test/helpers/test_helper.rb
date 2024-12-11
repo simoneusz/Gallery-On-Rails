@@ -1,8 +1,8 @@
 class ActiveSuppoer::TestCase
   setup do
-    DatavaseCleaber.start
+    DatabaseCleaber.start
   end
   teardown do
-    DatavaseCleaber.clean
+    DatabaseCleaber.clean
   end
 end
