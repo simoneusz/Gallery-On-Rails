@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @images = @category.images.page(params[:page]).per(5)
   end
 
   def new

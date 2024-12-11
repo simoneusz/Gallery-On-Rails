@@ -17,3 +17,12 @@
       column-count: 5;
     }
   }
+
+.overlay-content {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .overlay-content {
+  opacity: 1;
+}
