@@ -10,10 +10,9 @@
     <% @images.each do |image| %>
       <div class="masonry col-sm-4 col-md-4 mb-4">
         <div class="card border-0 position-relative overflow-hidden">
-          <!-- Картинка -->
+          
           <%= image_tag image.image.url, alt: image.title, class: "card-img-top img-thumbnail" %>
           
-          <!-- Оверлей с текстом и контентом -->
           <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-75 text-white overlay-content">
             <h5 class="card-title mb-2"><%= image.title %></h5>
             <div class="d-flex justify-content-center">
