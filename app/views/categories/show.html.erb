@@ -26,9 +26,8 @@
     </div>
   </div>
 
+  <%= render partial: 'comments/show', locals: { category: @category } %>
 </div>
-
-<%= render partial: 'comments/show', locals: { category: @category } %>
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
