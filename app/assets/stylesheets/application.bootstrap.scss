@@ -33,3 +33,23 @@
   height: 30px;
   border-radius: 50%;
 }
+.avatar-small {
+  width: 15px;
+  height: 15px;
+}
+
+.carousel-item img {
+  max-height: 500px;
+  object-fit: cover;
+  text-align: center;
+}
+
+.carousel-caption{
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+.carousel-item{
+  overflow: hidden;
+}

@@ -1,0 +1,30 @@
+<div id="topCategoriesCarousel" class="carousel slide mt-5" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @top_categories.each_with_index do |category, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %> bg-light rounded">
+        <%= link_to category_path(category), class: "text-decoration-none text-dark" do %>
+          <% if category.images.any? %>
+            <%= image_tag category.images.first.image.url, class: "d-block m-auto", alt: category.title %>
+          <% else %>
+            <img src="https://via.placeholder.com/800x400" class="d-block" alt="Placeholder">
+          <% end %>
+          <div class="carousel-caption bg-dark bg-opacity-50 p-3">
+            <h5><%= category.title %></h5>
+            <p>Likes: <%= category.likes_count %></p>
+            <p>Created by <%= category.user.username %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev text-dark" href="#topCategoriesCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only text-decoration-none">Previous</span>
+  </a>
+  <a class="carousel-control-next text-dark" href="#topCategoriesCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only text-decoration-none">Next</span>
+  </a>
+</div>
+
+</div>
