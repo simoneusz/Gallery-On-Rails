@@ -1,2 +1,21 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<div class="container mt-5" s>
+  <%= link_to category_path(@image.category) do %>
+    <svg aria-hidden="true" aria-label="" class="Hn_ Uvi gUZ U9O kVc" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M8.41 4.59a2 2 0 1 1 2.83 2.82L8.66 10H21a2 2 0 0 1 0 4H8.66l2.58 2.59a2 2 0 1 1-2.82 2.82L1 12z"></path></svg>
+  <% end %>
+
+  <div class="row justify-content-center">
+    <div class="col-md-9 col-12 d-flex flex-column flex-md-row align-items-start border rounded">
+
+      <div class="image-container mb-3 mb-md-0 bg-gray" style="flex: 1; max-width: 50%; padding: 10px;">
+        <%= image_tag @image.image.url, alt: @image.title, class: "img-fluid rounded object-fit-contain" %>
+      </div>
+
+      <div class="image-info ms-md-4 text-center text-md-start" style="flex: 1; max-width: 50%; padding: 10px;">
+        <div class="">
+          <%= render partial: 'images/likes', locals: { image: @image } %>
+          <p><%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> <%= @image.user.username %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

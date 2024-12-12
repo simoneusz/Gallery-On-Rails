@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category
-  before_action :authorize_user
+  before_action :authorize_user, only: [ :new, :create ]
 
   def new
     @image = @category.images.new
@@ -15,6 +15,10 @@ class ImagesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @image = @category.images.find(params[:id])
   end
 
   private
