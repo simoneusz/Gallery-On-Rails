@@ -1,40 +1,4 @@
-<div class="container my-5">
-  <h1 class="text-center mb-4">Top 5 Categories</h1>
+<%= render 'carousel' %>
 
-  <div class="row" id="top-categories-gallery" data-masonry='{"percentPosition": true }'>
-    <% @top_categories.each do |category| %>
-      <div class="masonry col-sm-6 col-md-4 mb-4">
-        <%= link_to category_path(category), class: "text-decoration-none text-dark" do %>
-          <div class="card shadow-sm h-100">
-            <% if category.images.any? %>
-              <% image = category.images.first %>
-              <%= image_tag image.image.url, alt: image.title, class: "card-img-top img-thumbnail hover-zoom" %>
-            <% end %>
-            <div class="card-body text-center">
-              <div class="card-body-row d-flex flex-row justify-content-around ">
-                <h2 class="h5 ">
-                  <%= category.title %>
-                </h2>
-                <p class="mt-auto">Likes: <strong><%= category.likes_count %></strong></p>
-              </div>
-              <p class="mb-auto">Created by <%= category.user.username %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var masonryContainer = document.querySelector('#masonry-gallery');
-    new Masonry(masonryContainer, {
-      itemSelector: 'masonry',
-      percentPosition: true,
-      gutter: 0
-    });
-  });
-</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
