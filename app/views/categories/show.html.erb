@@ -10,10 +10,10 @@
     <% @images.each do |image| %>
       <div class="masonry col-sm-4 col-md-4 p-1">
         <div class="card border-0 position-relative overflow-hidden">
-
-          <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
-          
-          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
+          <%= link_to category_image_path(@category, image  ) do %>
+            <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
+          <% end%>
+          <div style="display:none!important" class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
             <h5 class="card-title text-dark mb-2"><%= image.title %></h5>
             <div class="d-flex justify-content-center">
               <%= render partial: 'images/likes', locals: { image: image } %>
@@ -31,6 +31,9 @@
   <div class="row justify-content-center mt-4">
     <div class="col-auto">
       <%= link_to "Add Image", new_category_image_path(@category), class: "btn btn-secondary btn-lg" %>
+    </div>
+    <div class="col-auto">
+      <%= button_to "Delete category", category_path(@category), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-lg" %>
     </div>
   </div>
 

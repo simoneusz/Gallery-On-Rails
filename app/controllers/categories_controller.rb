@@ -18,10 +18,15 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      redirect_to category_path(current_user), notice: "Category has been created."
+      redirect_to @category, notice: "Category has been created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path, notice: "Category has been deleted."
   end
 
   private
