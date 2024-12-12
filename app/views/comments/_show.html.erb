@@ -9,7 +9,9 @@
             <p class="small mb-0 ms-2"><strong><%= comment.user.email %>:</strong></p>
           </div>
         </div>
-        <p><%= comment.content %></p>
+        <p>
+          <%= truncate(comment.content, length: 140)  %>
+        </p>
       </div>
     </div>
   <% end %>
