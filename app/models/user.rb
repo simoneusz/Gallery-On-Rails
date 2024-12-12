@@ -8,8 +8,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { minumum: 3, maximum: 16 }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   mount_uploader :avatar, AvatarUploader
 end
