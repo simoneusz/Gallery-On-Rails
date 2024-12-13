@@ -18,8 +18,7 @@ Rails.application.routes.draw do
     resource :like, module: :images
   end
 
-  resources :users, only: [ :show ]
-
+  resource :profile, only: [ :show ], controller: "users"
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

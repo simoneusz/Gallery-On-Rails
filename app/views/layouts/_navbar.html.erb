@@ -17,7 +17,7 @@
 
           <%= image_tag current_user.avatar.url, class: "avatar"%>
           
-          <li class="nav-item"><%= link_to current_user.username, current_user, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to current_user.username, profile_path, class: "nav-link" %></li>
           <li class="nav-item"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
         <% else %>
