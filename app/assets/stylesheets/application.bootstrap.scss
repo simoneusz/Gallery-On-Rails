@@ -1,6 +1,74 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+:root {
+	--nav-main-color: rgb(165, 42, 42);
+	--nav-main-color-hover: rgb(190, 28, 28);
+	--nav-secondary-color: rgb(150, 47, 47);
+	--nav-secondary-color-hover: rgb(168, 29, 29);
+}
+
+body{
+	background-color:#10041a;
+}
+// Fonts
+
+.roboto-thin {
+	font-family: "Roboto", serif;
+	font-weight: 100;
+	font-style: normal;
+}
+  
+.roboto-regular {
+	font-family: "Roboto", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.roboto-black-italic {
+	font-family: "Roboto", serif;
+	font-weight: 900;
+	font-style: italic;
+}
+.playwrite-au-sa {
+	font-family: "Playwrite AU SA", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+// NavBar
+.navbar{
+	color: var(--nav-main-color);
+}
+.navbar-brand{
+	font-size: 30px;
+	color: inherit;
+	font-family: 'Playwrite AU SA';
+}
+.nav-link, .nav-item > a{
+	color: var(--nav-main-color);
+}
+.nav-link:hover, .nav-item > a:hover{
+	color: var(--nav-secondary-color-hover);
+	transition: all 0.3s ease;
+}
+.navbar-brand:hover{
+
+	color: var(--nav-main-color-hover);
+	transition: all 0.3s ease;
+}
+
+// Home
+.main-container{
+	margin-bottom: 200px;
+}
+.main-title{
+	color: var(--nav-main-color);
+	text-align: center;
+}
+.main-description{
+	color: var(--nav-secondary-color);
+}
 .hover-zoom:hover{
     transform: scale(1.05);
     transition: all 0.3s ease-in-out;
@@ -74,7 +142,7 @@ $google-border-color_1: #1f1f1f1f;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	-webkit-appearance: none;
-  user-select: none;
+  	user-select: none;
 	background-color: $google-background-color_1;
 	background-image: none;
 	border: 1px solid #747775;
@@ -173,3 +241,17 @@ $google-border-color_1: #1f1f1f1f;
 	}
 }
 
+#image-track {
+display: flex;
+gap: 4vmin;
+
+transform: translate(-50%, -50%); 
+user-select: none;
+}
+
+#image-track > .image {
+width: 40vmin;
+height: 56vmin;
+object-fit: cover;
+object-position: 100% center;
+}
