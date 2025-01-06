@@ -1,35 +1,4 @@
-<div class="content">
-  <div class="images">
-   <% @top_categories.each_with_index do |category, index| %>
-    <% if category.images.any? %>
-      <%= link_to category_path(category), class: "text-decoration-none text-dark" do %>
-       <%= image_tag category.images.first.image.url, alt: category.title, 
-                    srcset: "#{category.images.first.image.url}?w=750 750w, #{category.images.first.image.url}?w=500 500w", 
-                    sizes: "(max-width: 768px) 100vw, 750px" %>
-      <% end %>
-    <% else %>
-      <img src="https://via.placeholder.com/800x400" alt="Placeholder">
-    <% end %>
-  <% end %>
-  </div>
-
-  <div class="btm-slides">
-    <% @top_categories.each_with_index do |category, index| %>
-      <span data-slide="<%= index + 1 %>"></span>
-    <% end %>
-  </div>
-
-  <div class="sliders left">
-    <span>&#10094;</span>
-  </div>
-  <div class="sliders right">
-    <span>&#10095;</span>
-  </div>
-</div>
-
-<script>
-
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelector(".images");
   const slides = document.querySelectorAll(".btm-slides span");
   const leftArrow = document.querySelector(".sliders.left");
@@ -94,5 +63,3 @@
 
   updateSlide();
 });
-
-</script>
