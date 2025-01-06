@@ -3,16 +3,17 @@
 
 :root {
 	--main-color: rgb(165, 42, 42);
+	--main-light-color: rgb(207, 246, 252);
 	--main-color-hover: rgb(190, 28, 28);
 	--secondary-color: rgb(150, 47, 47);
 	--secondary-color-hover: rgb(168, 29, 29);
-	--main-bg-dark: rgb(18,18,18);
+	--main-bg-dark: rgb(18, 18, 18);
 }
 
-.main-color{
+.main-color {
 	color: var(--main-color);
 }
-.bg-main-dark{
+.bg-main-dark {
 	background-color: var(--main-bg-dark);
 }
 body {
@@ -178,18 +179,21 @@ body {
 }
 // Drop down
 
-.dropdown-menu{
+.dropdown-menu {
 	background-color: transparent;
 }
-.dropdown-item{
+.dropdown-item {
 	color: var(--secondary-color);
 }
-.dropdown-item:hover{
+.dropdown-item:hover {
 	color: var(--main-color);
 	background-color: var(--main-bg-dark);
 }
-.dropdown > .btn{
+.dropdown > .btn {
 	color: var(--main-color);
+}
+.dropdown > .btn:hover {
+	color: var(--main-light-color);
 }
 
 // Media
@@ -221,9 +225,9 @@ body {
 }
 @media (max-width: 668px) {
 	.sliders {
-		display:none;
+		display: none;
 	}
-	.images img{
+	.images img {
 		width: 450px;
 		height: 200px;
 	}
@@ -231,15 +235,15 @@ body {
 		max-width: 80%;
 	}
 }
-@media (max-width: 480px){
-	.images img{
+@media (max-width: 480px) {
+	.images img {
 		width: 350px;
 		height: 170px;
 	}
 }
 
 //buttons btns btn
-.btn{
+.btn {
 	background-color: var(--main-bg-dark);
 	border: none;
 	outline: 1px solid#cff6fc;
@@ -426,10 +430,15 @@ $google-border-color_1: #1f1f1f1f;
 		}
 	}
 }
-.bi-suit-heart{
+
+//Forms
+
+.new_user {
+}
+.bi-suit-heart {
 	color: #cff6fc;
 }
-.likes-count{
+.likes-count {
 	color: var(--main-color);
 }
 #image-track {
