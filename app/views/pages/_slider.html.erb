@@ -1,94 +1,14 @@
-<style>
-  .content {
-    width: 750px;
-    height: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    background-color: #000;
-  }
-
-  .images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .images img {
-    width: 750px;
-    height: 400px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .btm-slides {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 5px;
-  }
-
-  .btm-slides span {
-    height: 15px;
-    width: 15px;
-    border: 2px solid white;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .btm-slides span.active {
-    background: white;
-  }
-
-  .sliders {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid white;
-    z-index: 10;
-    transition: background 0.3s ease;
-  }
-
-  .sliders:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .sliders.left {
-    left: 10px;
-  }
-
-  .sliders.right {
-    right: 10px;
-  }
-
-  .sliders span {
-    font-size: 24px;
-    color: white;
-  }
-</style>
-
 <div class="content">
   <div class="images">
-    <% @top_categories.each_with_index do |category, index| %>
-      <% if category.images.any? %>
-        <%= image_tag category.images.first.image.url, alt: category.title %>
-      <% else %>
-        <img src="https://via.placeholder.com/800x400" alt="Placeholder">
-      <% end %>
+   <% @top_categories.each_with_index do |category, index| %>
+    <% if category.images.any? %>
+      <%= image_tag category.images.first.image.url, alt: category.title, 
+                    srcset: "#{category.images.first.image.url}?w=750 750w, #{category.images.first.image.url}?w=500 500w", 
+                    sizes: "(max-width: 768px) 100vw, 750px" %>
+    <% else %>
+      <img src="https://via.placeholder.com/800x400" alt="Placeholder">
     <% end %>
+  <% end %>
   </div>
 
   <div class="btm-slides">
@@ -106,45 +26,70 @@
 </div>
 
 <script>
-  console.log(document.querySelectorAll(".btm-slides span"))
-</script>
-<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelector(".images");
-    const slides = document.querySelectorAll(".btm-slides span");
-    console.log(slides)
-    const leftArrow = document.querySelector(".sliders.left");
-    const rightArrow = document.querySelector(".sliders.right");
+  const images = document.querySelector(".images");
+  const slides = document.querySelectorAll(".btm-slides span");
+  const leftArrow = document.querySelector(".sliders.left");
+  const rightArrow = document.querySelector(".sliders.right");
+  let index = 0;
+  const totalSlides = slides.length;
 
-    let index = 0;
-    const totalSlides = slides.length;
-    function updateSlide() {
-      images.style.transform = `translateX(-${index * 100}%)`;
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle("active", idx === index);
-      });
+  function updateSlide() {
+    images.style.transform = `translateX(-${index * 100}%)`;
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle("active", idx === index);
+    });
+  }
+
+  let startX = 0;
+  let isDragging = false;
+
+  images.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  images.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const touchX = e.touches[0].clientX;
+    const deltaX = startX - touchX;
+
+    if (Math.abs(deltaX) > 50) {
+      isDragging = false;
+      if (deltaX > 0) {
+        index = (index + 1) % totalSlides;
+      } else {
+        index = (index - 1 + totalSlides) % totalSlides;
+      }
+      updateSlide();
     }
+  });
+
+  images.addEventListener("touchend", () => {
+    isDragging = false;
+  });
 
     function nextSlide() {
-      index = (index + 1) % totalSlides;
-      updateSlide();
-    }
-
-    function prevSlide() {
-      index = (index - 1 + totalSlides) % totalSlides;
-      updateSlide();
-    }
-
-    slides.forEach((slide, idx) => {
-      slide.addEventListener("click", () => {
-        index = idx;
-        updateSlide();
-      });
-    });
-
-    leftArrow.addEventListener("click", prevSlide);
-    rightArrow.addEventListener("click", nextSlide);
-
+    index = (index + 1) % totalSlides;
     updateSlide();
+  }
+
+  // Предыдущий слайд
+  function prevSlide() {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  }
+
+  slides.forEach((slide, idx) => {
+    slide.addEventListener("click", () => {
+      index = idx;
+      updateSlide();
+    });
   });
+
+  leftArrow.addEventListener("click", prevSlide);
+  rightArrow.addEventListener("click", nextSlide);
+
+  updateSlide();
+});
 </script>
