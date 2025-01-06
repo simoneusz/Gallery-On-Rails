@@ -2,17 +2,24 @@
 @import "bootstrap-icons/font/bootstrap-icons";
 
 :root {
-	--nav-main-color: rgb(165, 42, 42);
-	--nav-main-color-hover: rgb(190, 28, 28);
-	--nav-secondary-color: rgb(150, 47, 47);
-	--nav-secondary-color-hover: rgb(168, 29, 29);
+	--main-color: rgb(165, 42, 42);
+	--main-color-hover: rgb(190, 28, 28);
+	--secondary-color: rgb(150, 47, 47);
+	--secondary-color-hover: rgb(168, 29, 29);
+	--main-bg-dark: rgb(18,18,18);
 }
 
+.main-color{
+	color: var(--main-color);
+}
+.bg-main-dark{
+	background-color: var(--main-bg-dark);
+}
 body {
 	background-color: #10041a;
 }
-// Fonts
 
+// Fonts
 .roboto-thin {
 	font-family: "Roboto", serif;
 	font-weight: 100;
@@ -39,7 +46,7 @@ body {
 // NavBar
 .navbar {
 	margin: 0 20px;
-	color: var(--nav-main-color);
+	color: var(--main-color);
 }
 .navbar-brand {
 	font-size: 30px;
@@ -49,17 +56,17 @@ body {
 
 .nav-link,
 .nav-item > a {
-	color: var(--nav-main-color);
+	color: var(--main-color);
 	outline: none;
 	border: none;
 }
 .nav-link:hover,
 .nav-item > a:hover {
-	color: var(--nav-secondary-color-hover);
+	color: var(--secondary-color-hover);
 	transition: all 0.3s ease;
 }
 .navbar-brand:hover {
-	color: var(--nav-main-color-hover);
+	color: var(--main-color-hover);
 	transition: all 0.3s ease;
 }
 
@@ -70,19 +77,19 @@ body {
 .main-title-container {
 }
 .main-title {
-	color: var(--nav-main-color);
+	color: var(--main-color);
 	text-align: center;
 }
 .main-title span {
 	position: relative;
 }
 .main-description {
-	color: var(--nav-secondary-color);
+	color: var(--secondary-color);
 	text-align: center;
 }
 .main-svg {
 	position: absolute;
-	fill: var(--nav-main-color);
+	fill: var(--main-color);
 	width: 50px;
 	height: 50px;
 	left: -15px;
@@ -175,10 +182,14 @@ body {
 	background-color: transparent;
 }
 .dropdown-item{
-	color: var(--nav-secondary-color);
+	color: var(--secondary-color);
+}
+.dropdown-item:hover{
+	color: var(--main-color);
+	background-color: var(--main-bg-dark);
 }
 .dropdown > .btn{
-	color: var(--nav-main-color);
+	color: var(--main-color);
 }
 
 // Media
@@ -229,7 +240,7 @@ body {
 
 //buttons btns btn
 .btn{
-	background-color: transparent;
+	background-color: var(--main-bg-dark);
 	border: none;
 	outline: 1px solid#cff6fc;
 }
@@ -415,7 +426,12 @@ $google-border-color_1: #1f1f1f1f;
 		}
 	}
 }
-
+.bi-suit-heart{
+	color: #cff6fc;
+}
+.likes-count{
+	color: var(--main-color);
+}
 #image-track {
 	display: flex;
 	gap: 4vmin;

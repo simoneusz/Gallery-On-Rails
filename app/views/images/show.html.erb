@@ -13,7 +13,7 @@
       <div class="image-info ms-md-4 text-center text-md-start" style="flex: 1; max-width: 50%; padding: 10px;">
         <div class="">
           <%= render partial: 'images/likes', locals: { image: @image } %>
-          <p><%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> <%= @image.user.username %></p>
+          <p class="main-color"><%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> <%= @image.user.username %></p>
         </div>
       </div>
     </div>
