@@ -2,9 +2,11 @@
   <div class="images">
    <% @top_categories.each_with_index do |category, index| %>
     <% if category.images.any? %>
-      <%= image_tag category.images.first.image.url, alt: category.title, 
+      <%= link_to category_path(category), class: "text-decoration-none text-dark" do %>
+       <%= image_tag category.images.first.image.url, alt: category.title, 
                     srcset: "#{category.images.first.image.url}?w=750 750w, #{category.images.first.image.url}?w=500 500w", 
                     sizes: "(max-width: 768px) 100vw, 750px" %>
+      <% end %>
     <% else %>
       <img src="https://via.placeholder.com/800x400" alt="Placeholder">
     <% end %>
