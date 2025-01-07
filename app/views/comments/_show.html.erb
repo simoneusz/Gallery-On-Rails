@@ -1,11 +1,11 @@
-<div class="row mt-4">
-  <h2>Comments:</h2>
+<div class="comments row mt-4">
+  <h2 class="comments-title">Comments:</h2>
   <% category.comments.each do |comment| %>
     <div class="card mb-4 shadow-0 border" style="background-color: #f0f2f5">
       <div class="card-body">
         <div class="d-flex justify-content-between">
           <div class="d-flex flex-row align-items-center">
-              <%= image_tag comment.category.user.avatar.url, alt:"Avatar", class:"avatar" %>
+              <%= image_tag comment.user.avatar.url, alt:"Avatar", class:"avatar" %>
             <p class="small mb-0 ms-2"><strong><%= comment.user.email %>:</strong></p>
           </div>
         </div>
