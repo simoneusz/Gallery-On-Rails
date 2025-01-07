@@ -5,7 +5,7 @@
       <p class="lead playwrite-au-sa"><%= @category.description %></p>
     </div>
   </div>
-  
+  <button id="category" categoryId=<%= @category.id %> > Subscribe</button>
   <div class="row mt-4" id="masonry-gallery" data-masonry='{"percentPosition": true }'>
     <% @images.each do |image| %>
       <div class="masonry col-sm-4 col-md-4 p-1">
@@ -46,12 +46,21 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 <script>
+  import subscribeToCategory from "./category_subscription_channel";
+
+
   document.addEventListener("DOMContentLoaded", function() {
     var masonryContainer = document.querySelector('#masonry-gallery');
     new Masonry(masonryContainer, {
       itemSelector: '.masonry',
       percentPosition: true,
       gutter: 0
+    });
+
+    const categoryId = document.getElementById("category").dataset.categoryId;
+
+    subscribeToCategory(categoryId, (data) => {
+        alert(data.message);
     });
   });
 </script>

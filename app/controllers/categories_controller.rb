@@ -24,6 +24,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def update
+    if @category.update(category_params)
+      NotifySubscribersJob.perform_later(@category, "Categor #{@category.title} has been updated")
+      render json: { success: true }
+    else
+      render json: { success: false, errors: @category.errors.full_messages }
+    end
+  end
+
   def destroy
     @category.destroy
     redirect_to categories_path, notice: "Category has been deleted."
