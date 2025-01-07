@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module GalleryOnRails
   class Application < Rails::Application
-    config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 

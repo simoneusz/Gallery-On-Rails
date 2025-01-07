@@ -32,9 +32,12 @@
     <div class="col-auto">
       <%= link_to "Add Image", new_category_image_path(@category), class: "btn btn-secondary btn-lg" %>
     </div>
+
     <div class="col-auto">
-      <%= button_to "Delete category", category_path(@category), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-lg" %>
+      <button class="modal-btn modal-btn-open btn btn-danger btn-lg">Delete category</button>
+      <%= render partial: 'detele_modal', locals: { category: @category } %>
     </div>
+    
   </div>
 
   <%= render partial: 'comments/show', locals: { category: @category } %>

@@ -1,0 +1,47 @@
+<div class="custom-modal hidden-modal">
+  <div class="modal-top">
+    <button class="modal-btn-close">⨉</button>
+  </div>
+  <div>
+    <h3>Are you sure? </h3>
+    <p>
+      You have: 
+    </p>
+    <p><%= category.images.count %> images with <%= category.total_likes_count %> likes</p>
+  </div>
+  <%= button_to "Yes, delete this", category_path(@category), method: :delete, class: "btn btn-danger btn-lg" %>
+  <%= button_to "No", category_path(@category), method: :get, class: "modal-refuse btn btn-light btn-lg" %>
+  
+</div>
+
+<div class="overlay hidden-modal"></div>
+
+
+<script>
+  const modal = document.querySelector(".custom-modal");
+  const overlay = document.querySelector(".overlay");
+  const openModalBtn = document.querySelector(".modal-btn-open");
+  const closeModalBtn = document.querySelector(".modal-btn-close");
+
+  const closeModal = function () {
+  modal.classList.add("hidden-modal");
+    overlay.classList.add("hidden-modal");
+  };
+
+  closeModalBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden-modal")) {
+      closeModal();
+    }
+  });
+
+  const openModal = function () {
+    console.log("modal open")
+    modal.classList.remove("hidden-modal");
+    overlay.classList.remove("hidden-modal");
+  };
+
+  openModalBtn.addEventListener("click", openModal);
+</script>
