@@ -10,6 +10,7 @@
     <%= f.label :password, class:"form-label" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
   </div>
+  <%= recaptcha_tags %>
 
   <% if devise_mapping.rememberable? %>
     <div class="row mb-4 ">

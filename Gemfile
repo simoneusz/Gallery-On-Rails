@@ -56,6 +56,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "html2haml"
 end
 
 group :test do
@@ -74,3 +75,5 @@ gem "carrierwave", "~> 3.0"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "haml-rails", "~> 2.0"
+gem "recaptcha"
