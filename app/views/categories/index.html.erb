@@ -7,7 +7,7 @@
   <div class="list-body bg-transparent">
     <div class="list-group bg-transparent">
       <% @categories.reverse.each do |category| %>
-        <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action bg-main-dark main-color ">
+        <a href="<%= category_path(category) %>" class="list-group-item list-group-item-action main-color ">
           <h5 class="mb-1"><%= category.title %></h5>
           <p class="mb-1" ><%= truncate(category.description, length: 100) %></p>
           <p class="mb-1"><%= pluralize(category.total_likes_count, "like") %></p>

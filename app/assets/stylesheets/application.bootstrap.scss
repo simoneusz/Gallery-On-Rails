@@ -137,8 +137,14 @@ body {
 	color: var(--main-color);
 	border: none;
 }
+.btn-primary{
+	background-color: transparent;
+	transition: outline 1s ease;
+	outline: 0;
+}
 .btn-primary:hover {
 	background-color: #fff;
+	outline: 1px solid #000;
 	color: #000;
 }
 
