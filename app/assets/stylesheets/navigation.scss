@@ -6,34 +6,97 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #343a40;
+	font-family: "Georgia", serif;
+	background-color: #ffffff;
 	overflow-x: hidden;
+	border-right: 1px solid #ddd;
 	transition: 0.5s;
-	padding-top: 20px;
+
+}
+.sidenav-inner{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+// .sidenav {
+
+// 	color: #000;
+// 	width: 250px;
+// 	padding: 20px;
+	
+// }
+
+.sidenav button.closebtn {
+	align-self: flex-end;
+	font-size: 24px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+.sidenav-brand{
+	margin: 20px;
+	align-self: center;
+}
+
+.sidenav-user-info{
+	display: flex;
+	gap: 10px;
+}
+.sidenav .avatar {
+	display: block;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.sidenav p {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 20px;
+	color: #666;
+}
+
+.sidenav .navbar-nav {
+	list-style: none;
+	padding: 0;
+}
+
+.sidenav .nav-item {
+	margin-bottom: 10px;
 }
 
 .sidenav .nav-link {
-	padding: 10px 20px;
-	color: #ffffff;
-	display: block;
+	font-style: italic;
 	text-decoration: none;
+	color: #000;
+	transition: all 0.3s;
 }
-
+.sidenav-brand-text{
+	font-size: 30px;
+}
 .sidenav .nav-link:hover {
-	background-color: #495057;
+	color: #999;
 }
 
-.sidenav .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 36px;
+.sidenav .btn-toggle-nav {
+	margin-top: 20px;
 }
 
-.openbtn {
-	font-size: 20px;
-	cursor: pointer;
-	color: var(--main-color);
-	padding: 5px 0;
-	border: none;
+.sidenav .btn-toggle-nav strong {
+	font-size: 18px;
+	margin-bottom: 10px;
+	display: inline-block;
+	color: #999;
+}
+
+.sidenav .btn-toggle-nav .nav-link {
+	font-size: 14px;
+	color: #555;
+	padding-left: 10px;
+	display: block;
+}
+
+.sidenav .btn-toggle-nav .nav-link:hover {
+	color: #000;
+	font-weight: bold;
 }
