@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resource :profile, only: [ :show ], controller: "users"
 
   scope "/:locale" do
-    get "/", to: root_path
+    get "/", to: "pages#home"
   end
   get "up" => "rails/health#show", as: :rails_health_check
 end
