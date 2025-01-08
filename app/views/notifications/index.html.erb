@@ -1,0 +1,12 @@
+<h1 class="main-color">Your Notifications</h1>
+<ul>
+  <% @notifications.each do |notification| %>
+    <p><%= notification.user %></p>
+    <li class="<%= 'unread' unless notification.read %> main-color">
+      <%= notification.message %>
+      <% unless notification.read %>
+      <%= button_to "Mark as Read", notification_path(notification), method: :patch, class: "btn btn-success" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
