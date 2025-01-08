@@ -25,8 +25,5 @@ Rails.application.routes.draw do
   resources :notifications, only: [ :index, :update ]
   resource :profile, only: [ :show ], controller: "users"
 
-  scope "/:locale" do
-    get "/", to: "pages#home"
-  end
   get "up" => "rails/health#show", as: :rails_health_check
 end
