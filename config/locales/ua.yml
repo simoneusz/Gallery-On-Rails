@@ -1,0 +1,9 @@
+ua:
+  layouts:
+    navbar:
+      your_profile: "Твій профіль"
+      edit_account: "Редагувати профіль"
+      sign_out: "Вийти"
+      sign_up: "Зареєструватися"
+      sign_in: "Увійти"
+      top_categories: "Найкращі Категорії"

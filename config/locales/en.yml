@@ -45,3 +45,11 @@ en:
           other: "Displaying <b>all %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}–%{last}</b> of <b>%{total}</b> in total"
+  layouts:
+    navbar:
+      your_profile: "Your Profile"
+      edit_account: "Edit Account"
+      sign_out: "Sign Out"
+      sign_up: "Sign Up"
+      sign_in: "Sign In"
+      top_categories: "Top Categories"
