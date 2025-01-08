@@ -21,9 +21,10 @@
 	background-color: var(--main-bg-dark);
 }
 body {
+	min-height: 100vh;
 	padding: 0 20px;
 	background: rgb(232,232,232);
-	background: linear-gradient(45deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+	background: linear-gradient(0deg, rgb(218, 218, 218) 0%, rgba(255,255,255,1) 100%);
 	margin-top: 75px;
 }
 
@@ -56,9 +57,22 @@ body {
 	color: var(--main-color);
 	background-color: var(--main-bg-light)
 }
+.nav-top{
+	display: flex;
+	gap: 20px;
+}
+.navbar-toggler{
+
+}
+.nav-item > .btn{
+}
+.nav-item > .btn:hover{
+	background-color: #afafaf;
+	border-radius: 0;
+}
 .navbar-brand {
-	font-size: 30px;
 	color: inherit;
+	font-size: 20px;
 	font-family: "Playwrite AU SA";
 }
 .nav-brand-filler{
@@ -193,24 +207,6 @@ body {
 	font-size: 24px;
 	color: white;
 }
-// Drop down
-
-.dropdown-menu {
-	background-color: transparent;
-}
-.dropdown-item {
-	color: var(--secondary-color);
-}
-.dropdown-item:hover {
-	color: var(--main-color);
-	background-color: var(--main-bg-dark);
-}
-.dropdown > .btn {
-	color: var(--main-color);
-}
-.dropdown > .btn:hover {
-	color: var(--main-light-color);
-}
 
 //card
 .card{
@@ -235,10 +231,6 @@ body {
 	}
 	.navbar-collapse {
 		margin-top: 10px;
-	}
-	.navbar-collapse > .navbar-nav {
-		align-items: center !important;
-		margin-bottom: 10px;
 	}
 }
 @media (max-width: 768px) {
@@ -297,9 +289,8 @@ body {
 }
 //buttons btns btn
 .btn {
-	background-color: var(--main-bg-dark);
+	color: var(--main-color);
 	border: none;
-	outline: 1px solid#cff6fc;
 }
 .btn-primary:hover{
 	background-color: #fff;
