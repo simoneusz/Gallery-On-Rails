@@ -4,12 +4,14 @@
 @import "modal";
 
 :root {
-	--main-color: rgb(252, 242, 242);
+	--main-color: rgb(32, 32, 32);
 	--main-light-color: rgb(207, 246, 252);
-	--main-color-hover: rgb(253, 206, 206);
+	--main-color-hover: rgb(150, 150, 150);
 	--secondary-color: rgb(214, 211, 211);
 	--secondary-color-hover: rgb(168, 29, 29);
 	--main-bg-dark: rgb(18, 18, 18);
+	--main-bg-light: rgb(253, 253, 253);
+
 }
 
 .main-color {
@@ -52,14 +54,16 @@ body {
 // NavBar
 .navbar {
 	color: var(--main-color);
-	background-color: var(--main-bg-dark);
+	background-color: var(--main-bg-light)
 }
 .navbar-brand {
 	font-size: 30px;
 	color: inherit;
 	font-family: "Playwrite AU SA";
 }
-
+.nav-brand-filler{
+	margin: 50px 0;
+}
 .nav-link,
 .nav-item > a {
 	color: var(--main-color);
@@ -273,9 +277,6 @@ body {
 	}
 }
 @media screen and (max-width: 580px) {
-	.navbar {
-		background-color: var(--main-bg-dark);
-	}
 	.container {
 		padding: 0 30px;
 	}
