@@ -29,7 +29,7 @@
 
 <script>
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function initializeSlider(){
     const images = document.querySelector(".images");
     const slides = document.querySelectorAll(".btm-slides span");
     const leftArrow = document.querySelector(".sliders.left");
@@ -93,6 +93,7 @@
     rightArrow.addEventListener("click", nextSlide);
 
     updateSlide();
-  });
-
+  }
+  document.addEventListener("DOMContentLoaded", initializeSlider, { once: true });
+  document.addEventListener("turbo:load", initializeSlider, { once: true });
 </script>
