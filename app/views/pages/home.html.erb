@@ -1,5 +1,4 @@
 <div class="main-container">
-
   <div class="row" id="masonry-gallery" data-masonry='{"percentPosition": true }'>
     <% @top_categories.each do |category| %>
       <div class="masonry col-sm-4 col-md-4 p-1">
@@ -10,7 +9,7 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
               <h5 class="card-title text-dark mb-2"><%= category.title %></h5>
               <div class="d-flex justify-content-center">
-                <h5 class="card-title text-dark mb-2">By: <%= category.user.username %></h5>
+                <h5 class="card-author text-dark mb-2">By: <%= category.user.username %></h5>
               </div>
             </div>
           <% end%>

@@ -216,12 +216,19 @@ body {
 	border: 0;
 	border-radius: 0;
 }
-.card > a > img:hover{
+.card:hover .card-img-top{
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
 }
 .card-img-overlay{
 	border-radius: 0;
+}
+.card-title{
+}
+
+.card-author{
+	font-family: "Playwrite AU SA";
+
 }
 // Media
 
