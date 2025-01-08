@@ -1,40 +1,39 @@
-.navbar {
-	color: var(--main-color);
-	background-color: var(--main-bg-light)
+@import "vars";
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #343a40;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 20px;
 }
-.nav-top{
-	display: flex;
-	gap: 20px;
-}
-.navbar-toggler{
 
+.sidenav .nav-link {
+	padding: 10px 20px;
+	color: #ffffff;
+	display: block;
+	text-decoration: none;
 }
-.nav-item > .btn{
+
+.sidenav .nav-link:hover {
+	background-color: #495057;
 }
-.nav-item > .btn:hover{
-	background-color: #afafaf;
-	border-radius: 0;
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
 }
-.navbar-brand {
-	color: inherit;
+
+.openbtn {
 	font-size: 20px;
-	font-family: "Playwrite AU SA";
-}
-.nav-brand-filler{
-	margin: 50px 0;
-}
-.nav-link,
-.nav-item > a {
+	cursor: pointer;
 	color: var(--main-color);
-	outline: none;
+	padding: 5px 0;
 	border: none;
-}
-.nav-link:hover,
-.nav-item > a:hover {
-	color: var(--secondary-color-hover);
-	transition: all 0.3s ease;
-}
-.navbar-brand:hover {
-	color: var(--main-color-hover);
-	transition: all 0.3s ease;
 }
