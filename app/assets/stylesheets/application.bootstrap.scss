@@ -19,8 +19,10 @@
 	background-color: var(--main-bg-dark);
 }
 body {
-	background-color: var(--main-bg-dark);
-	margin-top: 100px;
+	padding: 0 20px;
+	background: rgb(232,232,232);
+	background: linear-gradient(45deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+	margin-top: 75px;
 }
 
 // Fonts
@@ -49,7 +51,6 @@ body {
 }
 // NavBar
 .navbar {
-	margin: 0 20px;
 	color: var(--main-color);
 	background-color: var(--main-bg-dark);
 }
@@ -76,10 +77,9 @@ body {
 }
 
 // Home
-.main-container {
-	margin-bottom: 125px;
-}
+.main-container{
 
+}
 .main-title {
 	color: var(--main-color);
 	text-align: center;
@@ -220,7 +220,9 @@ body {
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
 }
-
+.card-img-overlay{
+	border-radius: 0;
+}
 // Media
 
 @media (max-width: 992px) {
@@ -252,9 +254,6 @@ body {
 
 	.sliders span {
 		font-size: 16px;
-	}
-	.main-container {
-		margin-bottom: 50px;
 	}
 	.main-svg {
 		width: 35px;
