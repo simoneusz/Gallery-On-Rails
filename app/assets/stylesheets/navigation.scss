@@ -35,11 +35,11 @@
 	cursor: pointer;
 }
 .sidenav-brand{
-	margin: 20px;
+	margin: 10px 20px 20px 20px;
 	align-self: center;
 }
 
-.sidenav-user-info{
+.sidenav-user-info > a{
 	display: flex;
 	gap: 10px;
 }
