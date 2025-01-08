@@ -288,7 +288,10 @@ body {
 	border: none;
 	outline: 1px solid#cff6fc;
 }
-
+.btn-primary:hover{
+	background-color: #fff;
+	color: #000;
+}
 .hover-zoom:hover {
 	transform: scale(1.05);
 	transition: all 0.3s ease-in-out;
