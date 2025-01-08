@@ -1,12 +1,12 @@
-<h2 class="user-title text-light" >Log in</h2>
+<h2 class="user-title" >Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"user-form") do |f| %>
-  <div class="form-outline mb-4 text-light">
+  <div class="form-outline mb-4">
     <%= f.label :email, class:"form-label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
-  <div class="form-outline mb-4 text-light">
+  <div class="form-outline mb-4">
     <%= f.label :password, class:"form-label" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
   </div>
@@ -14,17 +14,17 @@
 
   <% if devise_mapping.rememberable? %>
     <div class="row mb-4 ">
-      <div class="col d-flex text-light">
+      <div class="col d-flex">
         <%= f.check_box :remember_me, class:"form-check-input " %>
         <%= f.label :remember_me, class: "form-check-label" %>
       </div>
     </div>
   <% end %>
-  <div class="actions text-light">
+  <div class="actions">
     <%= f.submit "Log in", class:"btn btn-primary btn-block mb-4" %>
   </div>
 <% end %>
-<div class="text-light">
+<div class="">
   <%= render "users/shared/links" %>
 </div>
 
