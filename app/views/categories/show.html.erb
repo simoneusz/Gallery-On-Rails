@@ -3,6 +3,7 @@
     <div class="col-lg-8 col-md-10 text-center text-light">
       <h1 class="display-4 fw-bold"><%= @category.title %></h1>
       <p class="lead playwrite-au-sa"><%= @category.description %></p>
+      <p class="lead playwrite-au-sa">created by: <%= @category.user.username %></p>
       <% if current_user.subscribed_categories.include?(@category) %>
         <%= button_to "Unsubscribe", category_subscription_path(@category), method: :delete, class: "btn btn-danger" %>
       <% else %>
@@ -52,8 +53,6 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
 <script>
-  import subscribeToCategory from "./category_subscription_channel";
-
 
   document.addEventListener("DOMContentLoaded", function() {
     var masonryContainer = document.querySelector('#masonry-gallery');
@@ -61,12 +60,6 @@
       itemSelector: '.masonry',
       percentPosition: true,
       gutter: 0
-    });
-
-    const categoryId = document.getElementById("category").dataset.categoryId;
-
-    subscribeToCategory(categoryId, (data) => {
-        alert(data.message);
     });
   });
 </script>
