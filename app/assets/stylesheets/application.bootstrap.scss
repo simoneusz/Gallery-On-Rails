@@ -7,15 +7,7 @@
 @import "modal";
 @import "navigation";
 
-:root {
-	--main-color: rgb(32, 32, 32);
-	--main-light-color: rgb(207, 246, 252);
-	--main-color-hover: rgb(150, 150, 150);
-	--secondary-color: rgb(214, 211, 211);
-	--secondary-color-hover: rgb(168, 29, 29);
-	--main-bg-dark: rgb(18, 18, 18);
-	--main-bg-light: rgb(253, 253, 253);
-}
+@import "vars";
 
 .main-color {
 	color: var(--main-color);
@@ -28,9 +20,10 @@ body {
 	padding: 0 20px;
 	background: rgb(232, 232, 232);
 	background: linear-gradient(0deg, rgb(218, 218, 218) 0%, rgba(255, 255, 255, 1) 100%);
-	margin-top: 75px;
 }
-
+.wrapper{
+	display: flex;
+}
 // Fonts
 .roboto-thin {
 	font-family: "Roboto", serif;
