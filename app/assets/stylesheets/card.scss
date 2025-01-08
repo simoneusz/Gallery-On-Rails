@@ -1,0 +1,36 @@
+.card{
+	border-radius: 0;
+}
+.card-img-top{
+	border: 0;
+	border-radius: 0;
+}
+.card:hover .card-img-top{
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
+}
+.card-img-overlay{
+	border-radius: 0;
+}
+.card-title{
+}
+
+.card-author{
+	font-family: "Playwrite AU SA";
+
+}
+.card-columns {
+	@include media-breakpoint-only(lg) {
+		column-count: 4;
+	}
+	@include media-breakpoint-only(xl) {
+		column-count: 5;
+	}
+}
+.overlay-content {
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+.card:hover .overlay-content {
+	opacity: 1;
+}
