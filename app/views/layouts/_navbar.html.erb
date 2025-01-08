@@ -28,7 +28,7 @@
       <ul class="navbar-nav ms-auto">
         <% if current_user %>
           <li class="nav-item dropdown">
-            <a class="nav-link d-flex align-items-center dropdown-toggle" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#userDropdown" aria-expanded="false">
+            <a class="nav-link d-flex align-items-center dropdown-toggle" href="#" role="button" data-bs-toggle="collapse" data-bs-target="#user-dropdown" aria-expanded="false">
               <%= image_tag current_user.avatar.url, class: "avatar rounded-circle me-2" %>
               <span><%= current_user.username %></span>
             </a>
