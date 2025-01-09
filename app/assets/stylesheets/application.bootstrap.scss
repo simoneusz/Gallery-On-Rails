@@ -21,7 +21,7 @@ body {
 	background: rgb(232, 232, 232);
 	background: linear-gradient(0deg, rgb(253, 245, 230) 0%, rgba(255, 255, 255, 1) 100%);
 }
-.wrapper{
+.wrapper {
 	display: flex;
 }
 // Fonts
@@ -137,7 +137,7 @@ body {
 	color: var(--main-color);
 	border: none;
 }
-.btn-primary{
+.btn-primary {
 	background-color: transparent;
 	transition: outline 1s ease;
 	outline: 0;
@@ -147,7 +147,7 @@ body {
 	outline: 1px solid #000;
 	color: #000;
 }
-.btn-danger{
+.btn-danger {
 	background-color: var(--main-bg-light);
 	outline: 1px solid black;
 }
@@ -159,7 +159,7 @@ body {
 .bi-suit-heart {
 	color: #cff6fc;
 }
-.image-info{
+.image-info {
 	flex: 1;
 	max-width: 50%;
 	padding: 10px;
