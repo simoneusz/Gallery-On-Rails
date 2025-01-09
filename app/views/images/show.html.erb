@@ -10,7 +10,7 @@
         <%= image_tag @image.image.url, alt: @image.title, class: "img-fluid rounded object-fit-contain" %>
       </div>
 
-      <div class="image-info ms-md-4 text-center text-md-start" style="flex: 1; max-width: 50%; padding: 10px;">
+      <div class="image-info ms-md-4 text-center text-md-start">
         <div class="">
           <%= render partial: 'images/likes', locals: { image: @image } %>
           <p class="main-color"><%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> <%= @image.user.username %></p>

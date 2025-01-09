@@ -159,6 +159,11 @@ body {
 .bi-suit-heart {
 	color: #cff6fc;
 }
+.image-info{
+	flex: 1;
+	max-width: 50%;
+	padding: 10px;
+}
 .likes-count {
 	color: var(--main-color);
 }
