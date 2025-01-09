@@ -13,4 +13,9 @@ ActiveAdmin.register Category do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  controller do
+    def find_resource
+      Category.friendly.find(params[:id])
+    end
+  end
 end
