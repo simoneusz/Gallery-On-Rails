@@ -3143,5 +3143,14 @@
     display: none;
   }
 }
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  text-indent: 0;
+  list-style-type: none;
+}
 
 /*# sourceMappingURL=active_admin.css.map */
