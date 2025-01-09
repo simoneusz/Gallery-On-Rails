@@ -107,22 +107,23 @@
 
 .navbar {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: flex-end;
 	list-style-type: none;
+	gap: 30px;
 	margin: 0;
-	padding: 0;
+	padding: 0 20px 0 0;
 	overflow: hidden;
 	background-color: transparent;
 	position: fixed;
 	top: 0;
 	left: -20px;
-	width: 100lh;
-	background: rgb(232,232,232);
-	background: linear-gradient(180deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+	width: 101vw;
+	background: rgb(232, 232, 232);
+	background: linear-gradient(180deg, rgba(232, 232, 232, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .nav-item {
-	float: left;
+	padding: 2px 5px;
 }
 
 .nav-item .nav-link {
@@ -134,4 +135,21 @@
 
 .active {
 	background-color: #04aa6d;
+}
+
+.arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+}
+
+.right {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+.left {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
 }
