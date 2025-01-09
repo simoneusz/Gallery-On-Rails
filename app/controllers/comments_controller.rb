@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      ActivityLog.create(
+        user: current_user,
+        action_type: "comments",
+        url: request.referer
+      )
       redirect_to @category, notice: "Comment added successfully."
     else
       redirect_to @category, alert: "Comment cannot be empty."
@@ -22,4 +27,7 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
+end
+
+class CommentsController < ApplicationController
 end

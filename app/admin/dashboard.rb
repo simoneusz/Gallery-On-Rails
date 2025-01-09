@@ -37,5 +37,18 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    columns do
+      column do
+        panel "Последние 10 действий пользователей" do
+          table_for ActivityLog.order(created_at: :desc).limit(10) do
+            column("Пользователь") { |log| link_to log.user.email, admin_user_path(log.user) }
+            column("Тип действия", &:action_type)
+            column("URL", &:url)
+            column("Время") { |log| log.created_at.strftime("%d.%m.%Y %H:%M") }
+          end
+        end
+      end
+    end
   end # content
 end

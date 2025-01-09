@@ -14,12 +14,26 @@ class Users::SessionsController < Devise::SessionsController
       logger.info("recahpa +")
       super
     end
+    if current_user
+      ActivityLog.create(
+        user: current_user,
+        action_type: "Login",
+        url: request.referer
+      )
+    end
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if current_user
+      ActivityLog.create(
+        user: current_user,
+        action_type: "Logout",
+        url: request.referer
+      )
+    end
+    super
+  end
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end
