@@ -19,7 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Last 5 created comments" do
           ul do
             Comment.order(created_at: :desc).limit(5).map do |comment|
-              li link_to(comment.content.truncate(30), admin_comment_path(comment))
+              li link_to(comment.content.truncate(30), admin_user_comment_path(comment))
             end
           end
         end
