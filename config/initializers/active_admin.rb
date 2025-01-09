@@ -5,7 +5,11 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Gallery On Rails"
-
+  config.clear_javascripts!
+  config.register_javascript "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js"
+  config.register_javascript "https://cdn.jsdelivr.net/npm/jquery-ujs@1.2.3/src/rails.min.js"
+  config.register_javascript "https://cdn.jsdelivr.net/npm/jquery-ui@1.13.2/dist/jquery-ui.min.js"
+  config.register_javascript "https://cdn.jsdelivr.net/npm/@activeadmin/activeadmin@2.13.1/app/assets/javascripts/active_admin/base.min.js"
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -225,13 +229,13 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  config.register_stylesheet "active_admin.css"
+  #   config.register_stylesheet 'my_stylesheet.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-  config.register_javascript "active_admin.js"
+  #   config.register_javascript 'my_javascript.js'
 
   # == CSV options
   #
@@ -348,5 +352,5 @@ ActiveAdmin.setup do |config|
   # By default, Active Admin uses Sprocket's asset pipeline.
   # You can switch to using Webpacker here.
   #
-  config.use_webpacker = true
+  config.use_webpacker = false
 end
