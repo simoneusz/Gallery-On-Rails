@@ -28,4 +28,8 @@ class Category < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     [ "created_at", "description", "id", "id_value", "slug", "title", "updated_at", "user_id" ]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "comments", "images", "subscribers", "subscriptions", "user" ]
+  end
 end
