@@ -3,7 +3,7 @@
 	height: 100%;
 	width: 0;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 	top: 0;
 	left: 0;
 	font-family: "Georgia", serif;
@@ -11,9 +11,8 @@
 	overflow-x: hidden;
 	border-right: 1px solid #ddd;
 	transition: 0.5s;
-
 }
-.sidenav-inner{
+.sidenav-inner {
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
@@ -24,7 +23,7 @@
 // 	color: #000;
 // 	width: 250px;
 // 	padding: 20px;
-	
+
 // }
 
 .sidenav button.closebtn {
@@ -34,12 +33,12 @@
 	border: none;
 	cursor: pointer;
 }
-.sidenav-brand{
+.sidenav-brand {
 	margin: 10px 20px 20px 20px;
 	align-self: center;
 }
 
-.sidenav-user-info > a{
+.sidenav-user-info > a {
 	display: flex;
 	gap: 10px;
 }
@@ -71,7 +70,7 @@
 	color: #000;
 	transition: all 0.3s;
 }
-.sidenav-brand-text{
+.sidenav-brand-text {
 	font-size: 30px;
 }
 .sidenav .nav-link:hover {
@@ -99,4 +98,40 @@
 .sidenav .btn-toggle-nav .nav-link:hover {
 	color: #000;
 	font-weight: bold;
+}
+
+.openbtn {
+	position: relative;
+	z-index: 2;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-evenly;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: transparent;
+	position: fixed;
+	top: 0;
+	left: -20px;
+	width: 100lh;
+	background: rgb(232,232,232);
+	background: linear-gradient(180deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.nav-item {
+	float: left;
+}
+
+.nav-item .nav-link {
+	display: block;
+	color: var(--main-color);
+	text-align: center;
+	text-decoration: none;
+}
+
+.active {
+	background-color: #04aa6d;
 }
