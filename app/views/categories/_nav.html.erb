@@ -1,6 +1,17 @@
 <ul class="navbar">
-  <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-  <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
-  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-  <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    <li class="nav-item">
+        <div>
+            <%= link_to category_path(category.previous), class:"nav-link"  do%>
+                <i class="arrow left"></i>
+            <% end%>
+        </div>
+    </li>
+    <li class="nav-item">
+        <div>
+            <%= link_to category_path(category.next), class:"nav-link"  do%>
+                <i class="arrow right"></i>
+            <% end%>
+        </div>
+    </li>
+
 </ul>
