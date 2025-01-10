@@ -6,6 +6,7 @@
 @import "miscellaneous";
 @import "modal";
 @import "navigation";
+@import "notifications";
 
 @import "vars";
 
@@ -142,14 +143,14 @@ body {
 }
 .btn-primary {
 	background-color: transparent;
-	transition: outline 1s ease;
+	transition: all 0.2s ease-in-out;
 	outline: 0;
 }
 .btn-primary:hover {
-	background-color: #fff;
-	outline: 1px solid #000;
-	color: #000;
-}
+	color: var(--main-color);
+	background-color: var(--main-bg-light);
+	box-shadow: 0 5px 15px rgba(207, 207, 207, 0.4);
+  }
 .btn-danger {
 	background-color: var(--main-bg-light);
 	outline: 1px solid black;
