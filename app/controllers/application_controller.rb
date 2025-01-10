@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_notifications
   after_action :track_navigation
 
   protected
@@ -21,5 +22,12 @@ class ApplicationController < ActionController::Base
       action_type: "navigation",
       url: request.fullpath
     )
+  end
+
+  def set_notifications
+    @notifications = []
+    if user_signed_in?
+      @notifications = current_user.notifications.where(read: false)
+    end
   end
 end

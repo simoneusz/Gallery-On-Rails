@@ -10,4 +10,13 @@ class NotificationsController < ApplicationController
     notification.update(read: true)
     redirect_to notifications_path, notice: "Notification marked as read."
   end
+
+  def mark_as_read
+    notification = Notification.find(params[:id])
+    if notification.update(read: true)
+      Rails.logger.info("Notification mark_as_read passed")
+    else
+      Rails.logger.info("Notification mark_as_read failed")
+    end
+  end
 end

@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   resources :images do
     resource :like, module: :images
   end
-  resources :notifications, only: [ :index, :update ]
+  resources :notifications, only: [ :index, :update ] do
+    member do
+      patch :mark_as_read
+    end
+  end
   resource :profile, only: [ :show ], controller: "users"
 
   get "up" => "rails/health#show", as: :rails_health_check
