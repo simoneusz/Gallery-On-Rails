@@ -12,12 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    ActivityLog.create(
-      user: current_user,
-      action_type: "New user created",
-      url: request.fullpath
-    )
-    UserMailer.welcome_email(current_user).deliver_later
+    send_email_to_current_user
   end
 
   # GET /resource/edit
@@ -65,4 +60,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def send_email_to_current_user
+    @user = current_user
+    SendEmailJob.perform_later(@user.id, "Test email subject", "Test email body body body body body body body")
+  end
 end

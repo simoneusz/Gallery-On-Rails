@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_notifications
-  after_action :track_navigation
+  # after_action :track_navigation
 
   protected
 
