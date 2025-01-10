@@ -40,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    [ "categories", "comments", "likes", "notifications", "subscribed_categories", "subscriptions" ]
+    [ "activity_logs", "categories", "comments", "likes", "notifications", "subscribed_categories", "subscriptions" ]
   end
 
   def self.ransackable_attributes(auth_object = nil)
