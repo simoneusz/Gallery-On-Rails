@@ -19,7 +19,7 @@
         <%= link_to category_image_path(@category, image  ) do %>
           <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
         <% end%>
-        <div style="display:none!important" class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
+        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
           <h5 class="card-title text-dark mb-2"><%= image.title %></h5>
           <div class="d-flex justify-content-center">
             <%= render partial: 'images/likes', locals: { image: image } %>
