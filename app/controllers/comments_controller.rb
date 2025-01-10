@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category
 
   def new
     @commentable = find_commentable
@@ -18,17 +17,13 @@ class CommentsController < ApplicationController
         action_type: "comments",
         url: request.referer
       )
-      redirect_to @category, notice: "Comment added successfully."
+      redirect_to @commentable, notice: "Comment added successfully."
     else
-      redirect_to @category, alert: "Comment cannot be empty."
+      redirect_to @commentable, alert: "Comment cannot be empty."
     end
   end
 
   private
-
-  def set_category
-    @category = Category.friendly.find(params[:category_id])
-  end
 
   def comment_params
     params.require(:comment).permit(:content)

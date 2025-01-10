@@ -1,6 +1,8 @@
-<div class="container mt-5" s>
+<div class="container mt-5">
   <%= link_to category_path(@image.category) do %>
-    <svg aria-hidden="true" aria-label="" class="Hn_ Uvi gUZ U9O kVc" height="20" role="img" viewBox="0 0 24 24" width="20"><path d="M8.41 4.59a2 2 0 1 1 2.83 2.82L8.66 10H21a2 2 0 0 1 0 4H8.66l2.58 2.59a2 2 0 1 1-2.82 2.82L1 12z"></path></svg>
+    <svg aria-hidden="true" aria-label="" class="Hn_ Uvi gUZ U9O kVc" height="20" role="img" viewBox="0 0 24 24" width="20">
+      <path d="M8.41 4.59a2 2 0 1 1 2.83 2.82L8.66 10H21a2 2 0 0 1 0 4H8.66l2.58 2.59a2 2 0 1 1-2.82 2.82L1 12z"></path>
+    </svg>
   <% end %>
 
   <div class="row justify-content-center">
@@ -11,9 +13,35 @@
       </div>
 
       <div class="image-info ms-md-4 text-center text-md-start">
-        <div class="">
+        <div>
           <%= render partial: 'images/likes', locals: { image: @image } %>
-          <p class="main-color"><%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> <%= @image.user.username %></p>
+          <p class="main-color">
+            <%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> 
+            <%= @image.user.username %>
+          </p>
+        </div>
+
+        <div class="comments-section mt-4">
+          <h5>Comments</h5>
+          <div class="comments-list">
+            <% @image.comments.each do |comment| %>
+              <div class="comment d-flex align-items-start mb-3">
+                <%= image_tag comment.user.avatar.url, class: "avatar avatar-small me-2" %>
+                <div class="comment-text">
+
+                  <p class="mb-1"><strong><%= comment.user.username %></strong> <%= comment.content %></p>
+                  <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="comment-form mt-4">
+          <%= form_with(model: [@image, @image.comments.new], local: true, class: "d-flex align-items-center") do |form| %>
+            <%= form.text_area :content, rows: 1, class: "form-control me-2", placeholder: "Add a comment..." %>
+            <%= form.submit "Post", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>

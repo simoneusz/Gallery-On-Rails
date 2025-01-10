@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resource :subscription, only: [ :create, :destroy ]
   end
   resources :images do
+    resources :comments, only: [ :create ]
     resource :like, module: :images
   end
   resources :notifications, only: [ :index, :update ] do

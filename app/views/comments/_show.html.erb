@@ -18,7 +18,7 @@
     <% end %>
 
     <% if user_signed_in? %>
-      <%= render partial: 'form' %>
+      <%= render partial: 'comments/form', locals:{commentable: commentable} %>
     <% else %>
       <p>Please <%= link_to 'sign in', new_user_session_path %> to add a comment.</p>
     <% end %>
