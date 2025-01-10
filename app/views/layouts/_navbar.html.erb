@@ -13,7 +13,7 @@
         <% end%>
       </div>
       <ul class="navbar-nav">
-        <li class="nav-item"><%= link_to t(".your_profile"), profile_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to t(".all_categories"), categories_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to t(".edit_account"), edit_user_registration_path, class: "nav-link" %></li>
         <li class="nav-item">
           <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "nav-link" %>

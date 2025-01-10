@@ -2,6 +2,7 @@ ua:
   layouts:
     navbar:
       your_profile: "Твій профіль"
+      all_categories: "Всі категорії"
       edit_account: "Редагувати профіль"
       sign_out: "Вийти"
       sign_up: "Зареєструватися"

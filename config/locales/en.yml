@@ -48,6 +48,7 @@ en:
   layouts:
     navbar:
       your_profile: "Your Profile"
+      all_categories: "All categories"
       edit_account: "Edit Account"
       sign_out: "Sign Out"
       sign_up: "Sign Up"
