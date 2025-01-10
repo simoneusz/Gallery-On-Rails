@@ -12,6 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    ActivityLog.create(
+      user: current_user,
+      action_type: "New user created",
+      url: request.fullpath
+    )
+    UserMailer.welcome_email(current_user).deliver_later
   end
 
   # GET /resource/edit
