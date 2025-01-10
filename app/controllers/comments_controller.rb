@@ -2,8 +2,14 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category
 
+  def new
+    @commentable = find_commentable
+    @comment = @commentable.comments
+  end
+
   def create
-    @comment = @category.comments.new(comment_params)
+    @commentable = find_commentable
+    @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
 
     if @comment.save
@@ -27,7 +33,12 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
-end
 
-class CommentsController < ApplicationController
+  def find_commentable
+    if params[:category_id]
+      Category.friendly.find(params[:category_id])
+    elsif params[:image_id]
+      Image.find(params[:image_id])
+    end
+  end
 end

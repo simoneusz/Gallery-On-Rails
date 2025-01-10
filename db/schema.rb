@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_09_115216) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_10_083334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -73,11 +73,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_09_115216) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_comments_on_category_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -154,7 +155,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_09_115216) do
 
   add_foreign_key "activity_logs", "users"
   add_foreign_key "categories", "users"
-  add_foreign_key "comments", "categories"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "categories"
   add_foreign_key "images", "users"

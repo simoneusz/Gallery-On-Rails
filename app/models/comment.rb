@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :category
+  belongs_to :commentable, polymorphic: true
 
   validates :content, presence: true, length: { minumum: 1, maximum: 140 }
 

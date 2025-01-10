@@ -5,7 +5,8 @@ class Image < ApplicationRecord
 
   belongs_to :category
   belongs_to :user
-  has_many :likes, as: :record
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :likes, as: :record, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 
