@@ -40,11 +40,11 @@ class Image < ApplicationRecord
     end
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    [ "category_id", "comments_count", "created_at", "file", "id", "id_value", "image", "likes_count", "title", "updated_at", "user_id" ]
+  def self.ransackable_associations(auth_object = nil)
+    [ "category", "comments", "likes", "user" ]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    [ "category", "likes", "user" ]
+  def self.ransackable_attributes(auth_object = nil)
+    [ "category_id", "comments_count", "created_at", "file", "id", "id_value", "image", "likes_count", "title", "updated_at", "user_id" ]
   end
 end
