@@ -81,3 +81,5 @@ gem "haml-rails", "~> 2.0"
 gem "recaptcha"
 gem "activeadmin"
 gem "resque"
+
+gem "factory_bot", "~> 6.5"
