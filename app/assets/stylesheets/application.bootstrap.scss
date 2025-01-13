@@ -97,23 +97,12 @@ body {
 		width: 8px;
 	}
 
-	.sliders {
-		width: 30px;
-		height: 30px;
-	}
-
-	.sliders span {
-		font-size: 16px;
-	}
 	.main-svg {
 		width: 35px;
 		height: 35px;
 	}
 }
 @media (max-width: 668px) {
-	.sliders {
-		display: none;
-	}
 	.images img {
 		width: 450px;
 		height: 200px;
