@@ -1,5 +1,6 @@
 <div id="notifications" class="position-fixed end-0 p-3" style="z-index: 1050;">
-  <% @notifications.each do |notification| %>
+  <% notifications.each do |notification| %>
+    <% next if notification.read == true %>
     <div class="notification alert alert-info alert-dismissible fade show" role="alert">
       <%= notification.message %>
       <%= button_to '', mark_as_read_notification_path(notification), 

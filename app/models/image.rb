@@ -33,11 +33,16 @@ class Image < ApplicationRecord
 
   def notify_subscribers
     category.subscribers.each do |subscriber|
-      notification = subscriber.notifications.create(
+      notification = Notification.create(
+        user: subscriber,
         message: "A new picture has been added to the category '#{category.title}'."
       )
-      NotificationsChannel.broadcast_to(subscriber, notification)
+      NotificationsChannel.broadcast_to(subscriber, render_notification(notification))
     end
+  end
+
+  def render_notification(notification)
+    ApplicationController.renderer.render(partial: "layouts/notifications", locals: { notifications: [ notification ] })
   end
 
   def self.ransackable_associations(auth_object = nil)
