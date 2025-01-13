@@ -1,17 +1,22 @@
 <ul class="navbar">
-    <li class="nav-item">
-        <div>
-            <%= link_to category_path(category.previous), class:"nav-link"  do%>
-                <i class="arrow left"></i>
-            <% end%>
-        </div>
-    </li>
-    <li class="nav-item">
-        <div>
-            <%= link_to category_path(category.next), class:"nav-link"  do%>
-                <i class="arrow right"></i>
-            <% end%>
-        </div>
-    </li>
+    <div class="navbar-category-info">
+        <p><strong><%= category.title %></strong></p>
+    </div>
+    <div class="navbar-arrows">
+        <li class="nav-item">
+            <div>
+                <%= link_to category_path(category.previous), class:"nav-link"  do%>
+                    <i class="arrow left"></i>
+                <% end%>
+            </div>
+        </li>
+        <li class="nav-item">
+            <div>
+                <%= link_to category_path(category.next), class:"nav-link"  do%>
+                    <i class="arrow right"></i>
+                <% end%>
+            </div>
+        </li>
+    </div>
 
 </ul>

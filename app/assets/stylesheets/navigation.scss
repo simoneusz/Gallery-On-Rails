@@ -102,12 +102,12 @@
 
 .openbtn {
 	position: relative;
-	z-index: 2;
+	z-index: 3;
 }
 
 .navbar {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-around;
 	list-style-type: none;
 	gap: 30px;
 	margin: 0;
@@ -120,8 +120,16 @@
 	width: 101vw;
 	background: rgb(232, 232, 232);
 	background: linear-gradient(180deg, rgba(232, 232, 232, 1) 0%, rgba(255, 255, 255, 1) 100%);
+	z-index: 2;
 }
-
+.navbar-arrows{
+	display: flex;
+	gap: 40px;
+}
+.navbar-category-info{
+	display: flex;
+	gap: 20px;
+}
 .nav-item {
 	padding: 2px 5px;
 }
