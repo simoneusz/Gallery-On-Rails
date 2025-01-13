@@ -9,6 +9,7 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "@rails/actioncable", to: "actioncable.esm.js"
 
+pin "imagesloaded", to: "https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js", preload: true
 pin "masonry-layout", to: "https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js", preload: true
-pin "app/javascript/channels/index.js"
+
 pin_all_from "app/javascript/channels", under: "channels"
