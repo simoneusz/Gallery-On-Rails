@@ -1,3 +1,3 @@
 // Import all the channels to be used by Action Cable
-import "./category_subscription_channel"
-import "./notifications_channel"
+import "channels/category_subscription_channel"
+import "channels/notifications_channel"

@@ -28,7 +28,10 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/notifications', locals: {notifications: current_user.notifications} %>
+    <%= turbo_stream_from current_user, "notifications"%>
+    <% if current_user %>
+      <%= render partial: 'layouts/notifications', locals: { notifications: current_user.notifications } %>
+    <% end %>
     <%= render partial: 'layouts/navbar' %>
     <%= render partial: "layouts/flash" %>
     <%= yield %>

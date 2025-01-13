@@ -4,7 +4,7 @@ import "controllers";
 
 import * as bootstrap from "bootstrap";
 import "masonry-layout";
-import "./channels"
+import "channels"
 
 document.addEventListener("turbo:load", function () {
   let masonryContainer = document.querySelector("#masonry-gallery");

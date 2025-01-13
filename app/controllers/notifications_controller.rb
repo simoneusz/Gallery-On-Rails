@@ -1,6 +1,9 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
+  def create
+    render json: {}, status: :no_content
+  end
   def index
     @notifications = current_user.notifications.order(created_at: :desc)
   end
