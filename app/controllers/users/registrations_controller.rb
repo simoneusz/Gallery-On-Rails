@@ -12,7 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    send_email_to_current_user
+    if current_user
+      send_email_to_current_user
+    end
   end
 
   # GET /resource/edit
