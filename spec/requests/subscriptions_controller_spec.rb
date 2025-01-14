@@ -1,8 +1,5 @@
 require 'rails_helper'
 
-# spec/controllers/subscriptions_controller_spec.rb
-require 'rails_helper'
-
 RSpec.describe SubscriptionsController, type: :controller do
   let(:user) { create(:user) }
   let(:category) { create(:category, user: create(:user)) }

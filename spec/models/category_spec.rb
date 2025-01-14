@@ -1,9 +1,5 @@
 require 'rails_helper'
 
-# spec/models/category_spec.rb
-
-require 'rails_helper'
-
 RSpec.describe Category, type: :model do
   let(:user) { create(:user) }
   subject { build(:category, user: user) }
