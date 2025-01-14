@@ -26,6 +26,7 @@ RSpec.describe CategoriesController, type: :controller do
 
     it 'paginates images associated with the category' do
       images = create_list(:image, 6, category: category)
+      images.size
       get :show, params: { id: category.id, page: 1 }
       expect(assigns(:images).size).to eq(5)
     end
