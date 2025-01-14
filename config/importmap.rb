@@ -13,3 +13,4 @@ pin "imagesloaded", to: "https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.
 pin "masonry-layout", to: "https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js", preload: true
 
 pin_all_from "app/javascript/channels", under: "channels"
+pin_all_from "app/javascript/views", under: "views"
