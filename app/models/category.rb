@@ -18,13 +18,11 @@ class Category < ApplicationRecord
   end
 
   def next
-    category = Category.where("id > ?", self.id).first
-    category.nil? ? Category.first : category
+    Category.where("id > ?", self.id).order(:id).first || Category.order(:id).first
   end
 
   def previous
-    category = Category.where("id < ?", self.id).first
-    category.nil? ? Category.first : category
+    Category.where("id < ?", self.id).order(id: :desc).first || Category.order(id: :desc).first
   end
 
   def self.ransackable_attributes(auth_object = nil)
