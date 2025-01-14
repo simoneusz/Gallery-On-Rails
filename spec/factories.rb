@@ -2,8 +2,10 @@ FactoryBot.define do
   factory :user do
     username { Faker::Internet.username(specifier: 3..16) }
     email { Faker::Internet.email }
-    password { "user@example.com" }
+    password { 'password123' }
+    password_confirmation { 'password123' }
   end
+
 
   factory :category do
     title { Faker::Internet.username(specifier: 3..16) }
