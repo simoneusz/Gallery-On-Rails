@@ -22,7 +22,13 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.username = auth.info.name.downcase.delete(" ")
+
+      username = auth.info.name.downcase.delete(" ")
+      if User.where(username: username).any?
+        Rails.logger.info("THIS USER IS PRESENT")
+        username = user.email
+      end
+      user.username = username
       user.avatar = auth.info.image
       Rails.logger.info("AUTHINFO")
       Rails.logger.info(auth.info)
