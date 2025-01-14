@@ -141,6 +141,8 @@ GEM
       tzinfo
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -439,6 +441,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.3)
+    shoulda-matchers (6.4.0)
+      activesupport (>= 5.2.0)
     sinatra (4.1.1)
       logger (>= 1.6.0)
       mustermann (~> 3.0)
@@ -521,6 +525,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   factory_bot (~> 6.5)
+  faker
   friendly_id (~> 5.5.0)
   haml-rails (~> 2.0)
   html2haml
@@ -542,6 +547,7 @@ DEPENDENCIES
   rspec-rails (~> 7.0.0)
   rubocop-rails-omakase
   selenium-webdriver
+  shoulda-matchers (~> 6.0)
   solid_cable
   solid_cache
   solid_queue

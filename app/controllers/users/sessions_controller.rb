@@ -10,10 +10,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if verify_recaptcha
-      logger.info("recahpa +")
-      super
-    end
+    super
     if current_user
       ActivityLog.create(
         user: current_user,
