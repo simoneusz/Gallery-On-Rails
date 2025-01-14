@@ -7,9 +7,11 @@ class Category < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :subscribers, through: :subscriptions, source: :user
-  # has_many :subscriptions, dependent: :destroy
   accepts_nested_attributes_for :images
+
   validates :title, presence: true, uniqueness: true, length: { minumum: 1, maximum: 24 }
+  validates :description, presence: true
+  validates :user_id, presence: true
 
   def total_likes_count
     images.sum(:likes_count)

@@ -11,6 +11,9 @@ class Image < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates :title, presence: true
+  validates :user_id, presence: true
+  validates :category_id, presence: true
+  validates :image, presence: true
 
   def liked_by?(user)
     likes.where(user: user).any?

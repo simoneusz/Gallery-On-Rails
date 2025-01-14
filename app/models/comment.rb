@@ -3,6 +3,9 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
 
   validates :content, presence: true, length: { minumum: 1, maximum: 140 }
+  validates :user_id, presence: true
+  validates :commentable_type, presence: true
+  validates :commentable_id, presence: true
 
   def self.ransackable_associations(auth_object = nil)
     [ "commentable", "user" ]

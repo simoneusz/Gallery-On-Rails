@@ -13,7 +13,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [ :google_oauth2 ]
 
-  validates :username, presence: true, uniqueness: true, length: { minumum: 3, maximum: 16 }
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 16 }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   mount_uploader :avatar, AvatarUploader
