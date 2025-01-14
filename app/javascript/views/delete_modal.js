@@ -22,6 +22,7 @@ function initializeModal() {
 
   if (openModalBtn) {
     const openModal = function () {
+      window.scrollTo(0, 0);
       modal.classList.remove("hidden-modal");
       overlay.classList.remove("hidden-modal");
     };

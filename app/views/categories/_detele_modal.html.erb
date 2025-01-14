@@ -4,16 +4,17 @@
   <div class="modal-top">
     <button class="modal-btn-close">⨉</button>
   </div>
-  <div>
-    <h3>Are you sure? </h3>
-    <p>
-      You have: 
-    </p>
-    <p><%= category.images.count %> images with <%= category.total_likes_count %> likes</p>
+  <div class="custom-modal-content">
+    <div>
+      <h3>Are you sure? </h3>
+      <p>
+        You have: 
+      </p>
+      <p><%= category.images.count %> images with <%= category.total_likes_count %> likes</p>
+    </div>
+    <%= button_to "Yes, delete this", category_path(@category), method: :delete, class: "btn btn-danger btn-lg" %>
+    <%= button_to "No", category_path(@category), method: :get, class: "modal-refuse btn btn-lg" %>
   </div>
-  <%= button_to "Yes, delete this", category_path(@category), method: :delete, class: "btn btn-danger btn-lg" %>
-  <%= button_to "No", category_path(@category), method: :get, class: "modal-refuse btn btn-light btn-lg" %>
-  
 </div>
 
 <div class="overlay hidden-modal"></div>
