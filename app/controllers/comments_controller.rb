@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
       )
       redirect_to @commentable, notice: "Comment added successfully."
     else
-      redirect_to @commentable, alert: "Comment cannot be empty."
+      redirect_to @commentable, alert: "Comment can't be empty or have more that 140 symbols"
     end
   end
 
