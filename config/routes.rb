@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
-  }
+  }, path_names: { edit: "profile" }
 
   resources :categories do
     resources :images, only: [ :new, :create, :show ]
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       patch :mark_as_read
     end
   end
-  resource :profile, only: [ :show ], controller: "users"
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

@@ -7,7 +7,7 @@
     </div>
     <% if current_user %>
       <div class="sidenav-user-info">
-        <%= link_to profile_path, class: "nav-link"  do%>
+        <%= link_to edit_user_registration_path, class: "nav-link"  do%>
           <%= image_tag current_user.avatar.url, class: "avatar rounded-circle mb-3" %>
           <p class="mb-3"><%= current_user.username %></p>
         <% end%>
