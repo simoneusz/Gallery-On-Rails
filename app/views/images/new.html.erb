@@ -1,25 +1,3 @@
-<%= form_with model: [@category, @image], method: :post, multipart: true, local: true, html: { class: "needs-validation" } do |form| %>
-  <div class="mb-3">
-    <%= form.label :title, "Image title", class: "form-label" %>
-    <%= form.text_field :title, class: "form-control", required: true %>
-    <% @image.errors.full_messages_for(:title).each do |message| %>
-      <div class="alert alert-warning mt-2" role="alert">
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :image, "Image", class: "form-label" %>
-    <%= form.file_field :image, class: "form-control", required: true %>
-    <% @image.errors.full_messages_for(:image).each do |message| %>
-      <div class="alert alert-warning mt-2" role="alert">
-        <%= message %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.submit "Upload", class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div class="container">
+  <%= render partial: 'form' %>
+</div>
