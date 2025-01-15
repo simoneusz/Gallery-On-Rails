@@ -1,7 +1,7 @@
 class NotifySubscribersJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(*_args)
     CategorySubscriptionChannel.broadcast_to(
       category,
       { message: message }

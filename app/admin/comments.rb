@@ -1,2 +1,2 @@
-ActiveAdmin.register ::Comment, as: "UserComment" do
+ActiveAdmin.register ::Comment, as: 'UserComment' do
 end

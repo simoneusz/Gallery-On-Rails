@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category
-  before_action :authorize_user, only: [ :new, :create ]
+  before_action :authorize_user, only: %i[new create]
 
   def new
     @image = @category.images.new
@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
     @image = @category.images.build(image_params)
     @image.user = current_user
     if @image.save
-      redirect_to category_path(@category), notice: "Image successfully uploaded."
+      redirect_to category_path(@category), notice: 'Image successfully uploaded.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,9 +28,9 @@ class ImagesController < ApplicationController
   end
 
   def authorize_user
-    unless @category.user == current_user
-      redirect_to root_path, alert: "You are not authorized to add images to this category."
-    end
+    return if @category.user == current_user
+
+    redirect_to root_path, alert: 'You are not authorized to add images to this category.'
   end
 
   def image_params

@@ -9,21 +9,22 @@ class Images::LikesController < ApplicationController
       @image.unlike(current_user)
       ActivityLog.create(
         user: current_user,
-        action_type: "unlikes",
-        url: request.referer,
+        action_type: 'unlikes',
+        url: request.referer
       )
     else
       @image.like(current_user)
       ActivityLog.create(
         user: current_user,
-        action_type: "likes",
-        url: request.referer,
+        action_type: 'likes',
+        url: request.referer
       )
     end
     respond_to do |format|
-      format.turbo_stream {
-        render turbo_stream: turbo_stream.replace(dom_id(@image, :likes), partial: "images/likes", locals: { image: @image })
-      }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(dom_id(@image, :likes), partial: 'images/likes',
+                                                                          locals: { image: @image })
+      end
     end
   end
 

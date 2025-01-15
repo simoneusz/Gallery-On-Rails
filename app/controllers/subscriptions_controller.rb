@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   def create
     subscription = @category.subscriptions.build(user: current_user)
     if subscription.save
-      redirect_to @category, notice: "You have subscribed to this category."
+      redirect_to @category, notice: 'You have subscribed to this category.'
     else
       redirect_to @category, alert: subscription.errors.full_messages.to_sentence
     end
@@ -15,9 +15,9 @@ class SubscriptionsController < ApplicationController
     subscription = @category.subscriptions.find_by(user: current_user)
     if subscription
       subscription.destroy
-      redirect_to @category, notice: "You have unsubscribed from this category."
+      redirect_to @category, notice: 'You have unsubscribed from this category.'
     else
-      redirect_to @category, alert: "You are not subscribed to this category."
+      redirect_to @category, alert: 'You are not subscribed to this category.'
     end
   end
 

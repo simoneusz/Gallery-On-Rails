@@ -11,13 +11,13 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    if current_user
-      ActivityLog.create(
-        user: current_user,
-        action_type: "Login",
-        url: request.referer
-      )
-    end
+    return unless current_user
+
+    ActivityLog.create(
+      user: current_user,
+      action_type: 'Login',
+      url: request.referer
+    )
   end
 
   # DELETE /resource/sign_out
@@ -25,12 +25,13 @@ class Users::SessionsController < Devise::SessionsController
     if current_user
       ActivityLog.create(
         user: current_user,
-        action_type: "Logout",
+        action_type: 'Logout',
         url: request.referer
       )
     end
     super
   end
+
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end

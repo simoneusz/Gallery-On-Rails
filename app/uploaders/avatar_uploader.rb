@@ -12,19 +12,19 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumbnail do
-    process resize_to_fill: [ 50, 50 ]
+    process resize_to_fill: [50, 50]
   end
 
   version :medium do
-    process resize_to_fill: [ 200, 200 ]
+    process resize_to_fill: [200, 200]
   end
 
   def size_range
     1.byte..5.megabytes
   end
 
-  def default_url(*args)
-    "/images/fallback/" + [ version_name, "default_avatar.jpg" ].compact.join("_")
+  def default_url(*_args)
+    '/images/fallback/' + [version_name, 'default_avatar.jpg'].compact.join('_')
   end
 
   def download_avatar_from_url(url)

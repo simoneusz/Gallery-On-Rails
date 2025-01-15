@@ -10,7 +10,7 @@ FactoryBot.define do
 
   factory :category do
     title { Faker::Internet.username(specifier: 3..16) }
-    description { "this is description" }
+    description { 'this is description' }
     user
   end
 
@@ -23,14 +23,14 @@ FactoryBot.define do
   end
 
   factory :activity_log do
-    action_type { "view" }
-    user { "categories/show" }
+    action_type { 'view' }
+    user { 'categories/show' }
     association :user
   end
 
   factory :comment do
-    action_type { "view" }
-    user { "categories/show" }
+    action_type { 'view' }
+    user { 'categories/show' }
     association :user
     association :commentable, factory: :category
   end

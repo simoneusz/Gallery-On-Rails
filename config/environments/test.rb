@@ -1,9 +1,9 @@
 Rails.application.configure do
   config.enable_reloading = false
 
-  config.eager_load = ENV["CI"].present?
+  config.eager_load = ENV['CI'].present?
 
-  config.public_file_server.headers = { "cache-control" => "public, max-age=3600" }
+  config.public_file_server.headers = { 'cache-control' => 'public, max-age=3600' }
 
   config.consider_all_requests_local = true
 
@@ -17,7 +17,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :test
 
-  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.default_url_options = { host: 'example.com' }
 
   config.active_support.deprecation = :stderr
 

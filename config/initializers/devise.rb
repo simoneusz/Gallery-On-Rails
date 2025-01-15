@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 Devise.setup do |config|
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.omniauth :google_oauth2,
                   Rails.application.credentials.dig(:google_oauth_client_id),
                   Rails.application.credentials.dig(:google_oauth_client_secret)
 
-  require "devise/orm/active_record"
+  require 'devise/orm/active_record'
 
-  _insensitive_keys = [ :email ]
-  config.strip_whitespace_keys = [ :email ]
+  _insensitive_keys = [:email]
+  config.strip_whitespace_keys = [:email]
 
-  config.skip_session_storage = [ :http_auth ]
+  config.skip_session_storage = [:http_auth]
 
   config.stretches = Rails.env.test? ? 1 : 12
 

@@ -4,6 +4,5 @@ class CategorySubscriptionChannel < ApplicationCable::Channel
     stream_for category
   end
 
-  def unsubscribed
-  end
+  def unsubscribed; end
 end
