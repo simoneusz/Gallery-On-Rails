@@ -27,6 +27,15 @@ class Image < ApplicationRecord
     likes.where(user: user).destroy_all
   end
 
+  def self.ransackable_associations(_auth_object = nil)
+    %w[category comments likes user]
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[category_id comments_count created_at file id id_value image likes_count title
+       updated_at user_id]
+  end
+
   private
 
   def default_values
@@ -46,14 +55,5 @@ class Image < ApplicationRecord
 
   def render_notification(notification)
     ApplicationController.renderer.render(partial: 'layouts/notifications', locals: { notifications: [notification] })
-  end
-
-  def self.ransackable_associations(_auth_object = nil)
-    %w[category comments likes user]
-  end
-
-  def self.ransackable_attributes(_auth_object = nil)
-    %w[category_id comments_count created_at file id id_value image likes_count title
-       updated_at user_id]
   end
 end
