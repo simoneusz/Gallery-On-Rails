@@ -16,20 +16,20 @@ namespace :app do
     end
 
     Dir.entries(root_path).each do |folder_name|
-      next if ['.', '..'].include?(folder_name)
+      next if %w[. ..].include?(folder_name)
 
       category_path = File.join(root_path, folder_name)
 
       next unless File.directory?(category_path)
 
-      category = Category.find_or_create_by!(title: folder_name) do |category|
+      new_category = Category.find_or_create_by!(title: folder_name) do |category|
         category.description = folder_name
         category.user = default_user
       end
       puts "Created/Found Category: #{folder_name}"
 
       Dir.entries(category_path).each do |file_name|
-        next if ['.', '..'].include?(file_name)
+        next if %w[. ..].include?(file_name)
 
         image_path = File.join(category_path, file_name)
 
@@ -37,7 +37,7 @@ namespace :app do
 
         image = Image.new(
           title: File.basename(file_name, '.*'),
-          category: category,
+          category: new_category,
           user: default_user,
           image: File.open(image_path)
         )

@@ -24,7 +24,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url(*_args)
-    '/images/fallback/' + [version_name, 'default_avatar.jpg'].compact.join('_')
+    "/images/fallback/#{[version_name, 'default_avatar.jpg'].compact.join('_')}"
   end
 
   def download_avatar_from_url(url)

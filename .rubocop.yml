@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/setup'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:

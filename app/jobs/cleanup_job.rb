@@ -6,7 +6,7 @@ class CleanupJob < ApplicationJob
     activity_log_size = ActivityLog.all.size
     return unless activity_log_size > 100
 
-    ActivityLog.first(activity_log_size - 100).map { |activity| activity.destroy }
+    ActivityLog.first(activity_log_size - 100).map(&:destroy)
     puts "Current log size #{ActivityLog.all.size}"
   end
 end

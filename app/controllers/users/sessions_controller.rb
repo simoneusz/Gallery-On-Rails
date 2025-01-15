@@ -1,48 +1,36 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+module Users
+  class SessionsController < Devise::SessionsController
+    def create
+      super
+      return unless current_user
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
-
-  # POST /resource/sign_in
-  def create
-    super
-    return unless current_user
-
-    ActivityLog.create(
-      user: current_user,
-      action_type: 'Login',
-      url: request.referer
-    )
-  end
-
-  # DELETE /resource/sign_out
-  def destroy
-    if current_user
       ActivityLog.create(
         user: current_user,
-        action_type: 'Logout',
+        action_type: 'Login',
         url: request.referer
       )
     end
-    super
-  end
 
-  def after_sign_out_path_for(_resource_or_scope)
-    new_user_session_path
-  end
+    # DELETE /resource/sign_out
+    def destroy
+      if current_user
+        ActivityLog.create(
+          user: current_user,
+          action_type: 'Logout',
+          url: request.referer
+        )
+      end
+      super
+    end
 
-  def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || root_path
-  end
-  # protected
+    def after_sign_out_path_for(_resource_or_scope)
+      new_user_session_path
+    end
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+    def after_sign_in_path_for(resource_or_scope)
+      stored_location_for(resource_or_scope) || root_path
+    end
+  end
 end
