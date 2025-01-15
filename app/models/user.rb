@@ -9,9 +9,13 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [ :google_oauth2 ]
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
-  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 16 }
+  validates :username,
+            presence: true,
+            uniqueness: { case_sensitive: false },
+            length: { minimum: 3, maximum: 16 }
+
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   mount_uploader :avatar, AvatarUploader
@@ -21,14 +25,14 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
 
-      username = auth.info.name.downcase.delete(" ")
+      username = auth.info.name.downcase.delete(' ')
       if User.where(username: username).any?
-        Rails.logger.info("THIS USER IS PRESENT")
+        Rails.logger.info('THIS USER IS PRESENT')
         username = user.email
       end
       user.username = username
       user.avatar = auth.info.image
-      Rails.logger.info("AUTHINFO")
+      Rails.logger.info('AUTHINFO')
       Rails.logger.info(auth.info)
 
       user.download_avatar_from_url(auth.info.image) if auth.info.image.present?
@@ -39,11 +43,12 @@ class User < ApplicationRecord
     self.remote_avatar_url = url
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    [ "activity_logs", "categories", "comments", "likes", "notifications", "subscribed_categories", "subscriptions" ]
+  def self.ransackable_associations(_auth_object = nil)
+    %w[activity_logs categories comments likes notifications subscribed_categories subscriptions]
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    [ "avatar", "avatar_url", "created_at", "email", "encrypted_password", "id", "id_value", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "uid", "updated_at", "username" ]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[avatar avatar_url created_at email encrypted_password id id_value provider
+       remember_created_at reset_password_sent_at reset_password_token uid updated_at username]
   end
 end
