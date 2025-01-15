@@ -36,7 +36,7 @@ gem 'solid_queue'
 
 # Administration, administrating
 gem 'activeadmin'
-gem 'carrierwave', '~> 3.0'
+gem 'carrierwave', '~> 3.1'
 gem 'devise', '~> 4.9'
 gem 'friendly_id', '~> 5.5.0'
 gem 'kaminari'
