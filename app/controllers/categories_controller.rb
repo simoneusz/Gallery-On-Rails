@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!, except: [ :index ]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_user
-  before_action :set_category, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all
@@ -18,15 +18,15 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      redirect_to @category, notice: "Category has been created."
+      redirect_to @category, notice: 'Category has been created.'
     else
-      render :new, status: :unprocessable_entity, alert: "Cant create that category"
+      render :new, status: :unprocessable_entity, alert: 'Cant create that category'
     end
   end
 
   def update
     if @category.update(category_params)
-      NotifySubscribersJob.perform_later(@category, "Categor #{@category.title} has been updated")
+      NotifySubscribersJob.perform_later(@category, "Category #{@category.title} has been updated")
       render json: { success: true }
     else
       render json: { success: false, errors: @category.errors.full_messages }
@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
-    redirect_to categories_path, notice: "Category has been deleted."
+    redirect_to categories_path, notice: 'Category has been deleted.'
   end
 
   private

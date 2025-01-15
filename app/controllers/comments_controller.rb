@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
     if @comment.save
       ActivityLog.create(
         user: current_user,
-        action_type: "comments",
+        action_type: 'comments',
         url: request.referer
       )
-      redirect_to @commentable, notice: "Comment added successfully."
+      redirect_to @commentable, notice: 'Comment added successfully.'
     else
       redirect_to @commentable, alert: "Comment can't be empty or have more that 140 symbols"
     end

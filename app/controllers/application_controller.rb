@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :avatar ])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [ :avatar ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])
   end
 
   def default_url_options
@@ -25,17 +25,18 @@ class ApplicationController < ActionController::Base
 
   def track_navigation
     return unless current_user
+
     ActivityLog.create(
       user: current_user,
-      action_type: "navigation",
+      action_type: 'navigation',
       url: request.fullpath
     )
   end
 
   def set_notifications
     @notifications = []
-    if user_signed_in?
-      @notifications = current_user.notifications.where(read: false)
-    end
+    return unless user_signed_in?
+
+    @notifications = current_user.notifications.where(read: false)
   end
 end
