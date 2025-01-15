@@ -27,7 +27,9 @@
       <%= render partial: 'layouts/notifications', locals: { notifications: current_user.notifications } %>
     <% end %>
     <%= render partial: 'layouts/navbar' %>
-    <%= render partial: "layouts/flash" %>
+    <div class="container">
+      <%= render partial: "layouts/flash" %>
+    </div>
     <%= yield %>
   </body>
 </html>
