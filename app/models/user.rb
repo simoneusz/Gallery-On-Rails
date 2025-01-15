@@ -22,21 +22,31 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-
-      username = auth.info.name.downcase.delete(' ')
-      if User.where(username: username).any?
-        Rails.logger.info('THIS USER IS PRESENT')
-        username = user.email
-      end
-      user.username = username
-      user.avatar = auth.info.image
-      Rails.logger.info('AUTHINFO')
-      Rails.logger.info(auth.info)
-
-      user.download_avatar_from_url(auth.info.image) if auth.info.image.present?
+      assign_basic_info(user, auth)
+      assign_username(user, auth)
+      process_avatar(user, auth)
     end
+  end
+
+  def self.assign_basic_info(user, auth)
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0, 20]
+  end
+
+  def self.assign_username(user, auth)
+    username = auth.info.name.downcase.delete(' ')
+    if User.where(username: username).exists?
+      Rails.logger.info('THIS USER IS PRESENT')
+      username = user.email
+    end
+    user.username = username
+  end
+
+  def self.process_avatar(user, auth)
+    user.avatar = auth.info.image
+    Rails.logger.info('AUTHINFO')
+    Rails.logger.info(auth.info)
+    user.download_avatar_from_url(auth.info.image) if auth.info.image.present?
   end
 
   def download_avatar_from_url(url)

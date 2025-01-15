@@ -3,7 +3,6 @@
 module Users
   class SessionsController < Devise::SessionsController
     def create
-      super
       return unless current_user
 
       ActivityLog.create(
@@ -11,18 +10,19 @@ module Users
         action_type: 'Login',
         url: request.referer
       )
+      super
     end
 
     # DELETE /resource/sign_out
     def destroy
-      if current_user
-        ActivityLog.create(
-          user: current_user,
-          action_type: 'Logout',
-          url: request.referer
-        )
-      end
       super
+      return unless current_user
+
+      ActivityLog.create(
+        user: current_user,
+        action_type: 'Logout',
+        url: request.referer
+      )
     end
 
     def after_sign_out_path_for(_resource_or_scope)
