@@ -24,15 +24,6 @@ RSpec.describe CommentsController, type: :controller do
         expect(response).to redirect_to(category)
         expect(flash[:notice]).to eq('Comment added successfully.')
       end
-
-      # it 'creates an activity log' do
-      #   p :comment
-      #   p "ActivityLog.count: #{ActivityLog.count}"
-      #   expect {
-      #     post :create, params: { category_id: category.id, user_id: user.id,  comment: valid_comment_params }
-      #   }.to change(ActivityLog, :count).by(1)
-      #   p "ActivityLog.count: #{ActivityLog.count}"
-      # end
     end
 
     context 'with invalid params' do

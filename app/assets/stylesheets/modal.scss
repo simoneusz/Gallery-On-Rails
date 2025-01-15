@@ -15,48 +15,47 @@
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
-}
-.custom-modal-content{
+  }
+  .custom-modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.custom-modal .flex {
+  }
+  
+  .custom-modal .flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.custom-modal input {
+  }
+  
+  .custom-modal input {
     padding: 0.7rem 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 0.9em;
-}
-
-.custom-modal p {
+  }
+  
+  .custom-modal p {
     font-size: 0.9rem;
     color: #777;
     margin: 0.4rem 0 0.2rem;
-}
-
-button {
+  }
+  
+  button {
     cursor: pointer;
     border: none;
     font-weight: 600;
-}
-
-
-.modal-top{
+  }
+  
+  .modal-top {
     display: flex;
     justify-content: flex-end;
-}
-.modal-refuse{
+  }
+  .modal-refuse {
     background-color: transparent !important;
-}
-
-.modal-btn-close {
+  }
+  
+  .modal-btn-close {
     transform: translate(10px, -20px);
     padding: 0.5rem 0.7rem;
     width: 40px;
@@ -64,9 +63,9 @@ button {
     align-self: flex-end;
     background: #eee;
     border-radius: 50%;
-}
-
-.overlay {
+  }
+  
+  .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -77,8 +76,9 @@ button {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     z-index: 1;
-}
-
-.hidden-modal {
+  }
+  
+  .hidden-modal {
     display: none;
-}
+  }
+  

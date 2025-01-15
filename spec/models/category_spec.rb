@@ -33,10 +33,6 @@ RSpec.describe Category, type: :model do
     end
 
     describe '#next' do
-      # it 'returns the next category based on ID' do
-      #   expect(category.next).to eq(other_category)
-      # end
-
       it 'returns the first category if no next category exists' do
         other_category.destroy
         expect(category.next).to eq(Category.first)

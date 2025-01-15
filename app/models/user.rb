@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :categories, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -34,10 +32,6 @@ class User < ApplicationRecord
       Rails.logger.info(auth.info)
 
       user.download_avatar_from_url(auth.info.image) if auth.info.image.present?
-
-      # If you are using confirmable and the provider(s) you use validate emails,
-      # uncomment the line below to skip the confirmation emails.
-      # user.skip_confirmation!
     end
   end
 

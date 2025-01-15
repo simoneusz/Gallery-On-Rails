@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }, path_names: { edit: "profile" }
 
-  resources :categories do
+  resources :categories, only: [ :new, :create, :show, :index ] do
     resources :images, only: [ :new, :create, :show ]
     resources :comments, only: [ :create ]
     resource :subscription, only: [ :create, :destroy ]

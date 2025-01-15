@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to @category, notice: "Category has been created."
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Cant create that category"
     end
   end
 
