@@ -16,7 +16,7 @@
         <div>
           <%= render partial: 'images/likes', locals: { image: @image } %>
           <p class="main-color">
-            <%= image_tag @image.user.avatar.url, class: "avatar avatar-small" %> 
+            <%= image_tag @image.user.avatar.thumbnail.url, class: "avatar avatar-small" %> 
             <%= @image.user.username %>
           </p>
         </div>
@@ -26,7 +26,7 @@
           <div class="comments-list">
             <% @image.comments.each do |comment| %>
               <div class="comment d-flex align-items-start mb-3">
-                <%= image_tag comment.user.avatar.url, class: "avatar avatar-small me-2" %>
+                <%= image_tag comment.user.avatar.thumbnail.url, class: "avatar avatar-small me-2" %>
                 <div class="comment-text">
 
                   <p class="mb-1"><strong><%= comment.user.username %></strong> <%= comment.content %></p>
