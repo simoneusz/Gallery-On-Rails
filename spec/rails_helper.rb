@@ -6,6 +6,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'rspec/rails'
 require 'capybara/rspec'
+Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -28,7 +29,6 @@ end
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-  FactoryBot.find_definitions
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
