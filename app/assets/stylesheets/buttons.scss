@@ -1,0 +1,19 @@
+.btn {
+	color: var(--main-color);
+	border: none;
+}
+.btn-primary {
+	background-color: transparent;
+	transition: all 0.2s ease-in-out;
+	outline: 0;
+	border: 1px solid black;
+}
+.btn-primary:hover {
+	color: var(--main-color);
+	background-color: var(--main-bg-light);
+	box-shadow: 0 5px 15px rgba(207, 207, 207, 0.4);
+}
+.btn-danger {
+	background-color: var(--main-bg-light);
+	outline: 1px solid black;
+}
