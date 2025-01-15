@@ -145,6 +145,10 @@ $google-border-color_1: #1f1f1f1f;
 	max-width: 50%;
 	padding: 10px;
 }
+.image-info-top{
+	display: flex;
+	gap: 30px;
+}
 .likes-count {
 	color: var(--main-color);
 }
