@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ActivityLog, type: :model do
-  describe "vadilation" do
+  describe 'validations' do
     it { should validate_presence_of(:action_type) }
     it { should validate_presence_of(:url) }
   end

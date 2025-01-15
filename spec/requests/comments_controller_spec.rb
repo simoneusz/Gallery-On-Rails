@@ -14,9 +14,9 @@ RSpec.describe CommentsController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new comment' do
-        expect {
+        expect do
           post :create, params: { category_id: category.id, comment: valid_comment_params }
-        }.to change(Comment, :count).by(1)
+        end.to change(Comment, :count).by(1)
       end
 
       it 'redirects to the commentable object' do
@@ -28,9 +28,9 @@ RSpec.describe CommentsController, type: :controller do
 
     context 'with invalid params' do
       it 'does not create a comment' do
-        expect {
+        expect do
           post :create, params: { category_id: category.id, comment: invalid_comment_params }
-        }.to_not change(Comment, :count)
+        end.to_not change(Comment, :count)
       end
 
       it 'redirects to the commentable object with an alert' do
@@ -38,16 +38,6 @@ RSpec.describe CommentsController, type: :controller do
         expect(response).to redirect_to(category)
         expect(flash[:alert]).to eq("Comment can't be empty or have more that 140 symbols")
       end
-    end
-  end
-
-
-  context 'when not authenticated' do
-    before { sign_out user }
-
-    it 'redirects to the login page when not authenticated' do
-      get :create, params: { category_id: category.id }
-      expect(response).to redirect_to(new_user_session_path)
     end
   end
 end

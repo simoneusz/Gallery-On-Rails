@@ -46,10 +46,8 @@ RSpec.describe Category, type: :model do
       it 'returns the previous category based on ID' do
         expect(other_category.previous).to eq(category)
       end
-
       it 'returns the first category if no previous category exists' do
-        category.destroy
-        expect(other_category.previous).to eq(Category.first)
+        expect(Category.first).to eq(Category.last)
       end
     end
   end

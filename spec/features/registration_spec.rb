@@ -1,25 +1,24 @@
 require 'rails_helper'
-def log_in(driver, path)
-  driver.navigate.to "#{path}/users/sign_up"
 
-  email_field = driver.find_element(id: 'user_username')
-  email_field.send_keys 'features'
+RSpec.describe 'User Registration', type: :feature do
+  before do
+    Capybara.current_driver = :selenium
+  end
 
-  email_field = driver.find_element(id: 'user_email')
-  email_field.send_keys 'features@gmail.com'
+  after do
+    Capybara.use_default_driver
+  end
 
-  password_field = driver.find_element(id: 'user_password')
-  password_field.send_keys 'features@gmail.com'
+  it 'registers a new user successfully' do
+    visit '/users/sign_up'
 
-  password_field = driver.find_element(id: 'user_password_confirmation')
-  password_field.send_keys 'features@gmail.com'
+    fill_in 'user_username', with: 'selenium'
+    fill_in 'user_email', with: 'selenium@gmail.com'
+    fill_in 'user_password', with: 'selenium@gmail.com'
+    fill_in 'user_password_confirmation', with: 'selenium@gmail.com'
 
-  submit = driver.find_element(name: 'commit')
-  p submit.text
-  submit.click
+    click_button 'commit'
+
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+  end
 end
-
-driver = Selenium::WebDriver.for :chrome
-path = 'http://localhost:3000'
-
-log_in(driver, path)
