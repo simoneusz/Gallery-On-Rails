@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       .joins(images: :likes)
       .group("categories.id")
       .order("likes_count DESC")
-      .limit(5)
+      .limit(10)
   end
   def users
   end
