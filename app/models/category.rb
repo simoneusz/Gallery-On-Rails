@@ -9,7 +9,8 @@ class Category < ApplicationRecord
   has_many :subscribers, through: :subscriptions, source: :user
   accepts_nested_attributes_for :images
 
-  validates :title, presence: true, uniqueness: true, length: { minumum: 1, maximum: 24 }
+  validates :title, presence: true, uniqueness: true, length: { minimum: 1, maximum: 24 }
+
   validates :description, presence: true
   validates :user_id, presence: true
 
@@ -18,18 +19,18 @@ class Category < ApplicationRecord
   end
 
   def next
-    Category.where("id > ?", self.id).order(:id).first || Category.order(:id).first
+    Category.where('id > ?', id).order(:id).first || Category.order(:id).first
   end
 
   def previous
-    Category.where("id < ?", self.id).order(id: :desc).first || Category.order(id: :desc).first
+    Category.where('id < ?', id).order(id: :desc).first || Category.order(id: :desc).first
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    [ "created_at", "description", "id", "id_value", "slug", "title", "updated_at", "user_id" ]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[created_at description id id_value slug title updated_at user_id]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    [ "comments", "images", "subscribers", "subscriptions", "user" ]
+  def self.ransackable_associations(_auth_object = nil)
+    %w[comments images subscribers subscriptions user]
   end
 end
