@@ -15,7 +15,7 @@ html {
 }
 body {
 	min-height: 100vh;
-	padding: 0 20px;
+
 	background: rgb(232, 232, 232);
 	background: linear-gradient(0deg, var(--main-bg-dark) 0%, rgb(255, 255, 255, 1) 100%);
 }
@@ -26,7 +26,7 @@ body {
 	background-color: var(--main-bg-dark);
 }
 .wrapper {
-	display: flex;
+	padding: 0 20px;
 }
 // Fonts
 .roboto-thin {
