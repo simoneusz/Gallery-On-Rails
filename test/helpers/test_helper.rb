@@ -1,8 +1,10 @@
-class ActiveSuppoer::TestCase
-  setup do
-    DatabaseCleaber.start
-  end
-  teardown do
-    DatabaseCleaber.clean
+module ActiveSupport
+  class TestCase
+    setup do
+      DatabaseCleaner.start
+    end
+    teardown do
+      DatabaseCleaner.clean
+    end
   end
 end

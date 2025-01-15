@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
     @commentable = find_commentable
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
-
     if @comment.save
       ActivityLog.create(
         user: current_user,
