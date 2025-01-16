@@ -84,7 +84,7 @@
     <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.2.2, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, RVM: ruby-3.3.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.2, RVM: ruby-3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.5, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.23.1, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, RVM: ruby-3.3.6) [gem]" level="application" />
@@ -175,7 +175,7 @@
     <orderEntry type="library" scope="PROVIDED" name="solid_cable (v3.0.2, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_cache (v1.0.6, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="solid_queue (v1.0.2, RVM: ruby-3.3.6) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sorbet-runtime (v0.5.11758, RVM: ruby-3.3.6) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sorbet-runtime (v0.5.11761, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.5.0, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.23.2, RVM: ruby-3.3.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ssrf_filter (v1.2.0, RVM: ruby-3.3.6) [gem]" level="application" />
