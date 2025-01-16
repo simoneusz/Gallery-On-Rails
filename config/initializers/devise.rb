@@ -2,9 +2,15 @@
 
 Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :google_oauth2,
-                  Rails.application.credentials[:google_oauth_client_id],
-                  Rails.application.credentials[:google_oauth_client_secret]
+  if ENV['google_oauth_client_id'] && ENV['google_oauth_client_secret']
+    config.omniauth :google_oauth2,
+                    ENV['google_oauth_client_id'],
+                    ENV['google_oauth_client_secret']
+  else
+    config.omniauth :google_oauth2,
+                    Rails.application.credentials[:google_oauth_client_id],
+                    Rails.application.credentials[:google_oauth_client_secret]
+  end
 
   require 'devise/orm/active_record'
 
