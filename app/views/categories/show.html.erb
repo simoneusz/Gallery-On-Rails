@@ -1,50 +1,52 @@
 <%= render partial: 'nav', locals: {category: @category} %>
-<div class="row justify-content-center">
-  <div class="col-lg-8 col-md-10 text-center">
-    <h1 class="display-4 fw-bold"><%= @category.title %></h1>
-    <p class="lead playwrite-au-sa"><%= @category.description %></p>
-    <p class="lead playwrite-au-sa">created by: <%= @category.user.username %></p>
-    <% if current_user.subscribed_categories.include?(@category) %>
-      <%= button_to "Unsubscribe", category_subscription_path(@category), method: :delete, class: "btn btn-danger" %>
-    <% else %>
-      <%= button_to "Subscribe", category_subscription_path(@category), method: :post, class: "btn btn-primary" %>
+<div class="main-container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 text-center">
+      <h1 class="display-4 fw-bold"><%= @category.title %></h1>
+      <p class="lead playwrite-au-sa"><%= @category.description %></p>
+      <p class="lead playwrite-au-sa">created by: <%= @category.user.username %></p>
+      <% if current_user.subscribed_categories.include?(@category) %>
+        <%= button_to "Unsubscribe", category_subscription_path(@category), method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <%= button_to "Subscribe", category_subscription_path(@category), method: :post, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row mt-4" id="masonry-gallery" data-masonry='{"percentPosition": true }'>
+    <% @images.each do |image| %>
+      <div class="masonry col-sm-4 col-md-4 p-1">
+        <div class="card border-0 position-relative overflow-hidden">
+          <%= link_to category_image_path(@category, image  ) do %>
+            <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
+
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
+              <h5 class="card-title text-dark mb-2"><%= image.title %></h5>
+              <div class="d-flex justify-content-center">
+                <%= render partial: 'images/likes', locals: { image: image } %>
+              </div>
+            </div>
+          <% end%>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
 
-<div class="row mt-4" id="masonry-gallery" data-masonry='{"percentPosition": true }'>
-  <% @images.each do |image| %>
-    <div class="masonry col-sm-4 col-md-4 p-1">
-      <div class="card border-0 position-relative overflow-hidden">
-        <%= link_to category_image_path(@category, image  ) do %>
-          <%= image_tag image.image.medium.url, alt: image.title, class: "card-img-top img-thumbnail p-0" %>
-        
-          <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-white bg-opacity-75 text-white overlay-content">
-            <h5 class="card-title text-dark mb-2"><%= image.title %></h5>
-            <div class="d-flex justify-content-center">
-              <%= render partial: 'images/likes', locals: { image: image } %>
-            </div>
-          </div>
-        <% end%>
-      </div>
+  <div class="row d-flex justify-content-center align-items-center mt-4">
+    <%= paginate @images %>
+  </div>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-auto mb-4">
+      <%= link_to "Add Image", new_category_image_path(@category), class: "btn btn-primary btn-lg" %>
     </div>
-  <% end %>
-</div>
 
-<div class="row d-flex justify-content-center align-items-center mt-4">
-  <%= paginate @images %>
-</div>
+    <div class="col-auto">
+      <button class="modal-btn modal-btn-open btn btn-danger btn-lg">Delete category</button>
+      <%= render partial: 'detele_modal', locals: { category: @category } %>
+    </div>
 
-<div class="row justify-content-center mt-4">
-  <div class="col-auto mb-4">
-    <%= link_to "Add Image", new_category_image_path(@category), class: "btn btn-primary btn-lg" %>
   </div>
 
-  <div class="col-auto">
-    <button class="modal-btn modal-btn-open btn btn-danger btn-lg">Delete category</button>
-    <%= render partial: 'detele_modal', locals: { category: @category } %>
-  </div>
-  
+  <%= render partial: 'comments/show', locals: { commentable: @category } %>
 </div>
-
-<%= render partial: 'comments/show', locals: { commentable: @category } %>
