@@ -8,7 +8,7 @@ namespace :app do
       user.password = 'password123'
     end
 
-    root_path = Rails.root.join('public', 'uploads', 'migrate_images')
+    root_path = Rails.root.join('public', 'migrate_images')
 
     unless Dir.exist?(root_path)
       puts "Directory #{root_path} does not exist. Please create it and add folders with images."
