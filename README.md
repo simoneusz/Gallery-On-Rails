@@ -10,35 +10,34 @@ A powerful image gallery application built with Ruby on Rails, featuring user au
 ##  🚀 Features
 
 - Image Handling
-- Supports three image sizes:
-- Full-size for /image/show
-- Medium preview for category listings
-- Thumbnail for admin panel and user avatars
-- Displays only categorized images (uncategorized visible in admin only)
+    - Supports three image sizes:
+        - Full-size for /image/show
+        - Medium preview for category listings
+        - Thumbnail for admin panel and user avatars
+    - Displays only categorized images (uncategorized visible in admin only)
 - User & Content Management
-- User authentication with OmniAuth (social login)
-- reCAPTCHA protection
-- Profile page with user details and edit options
+    - User authentication with OmniAuth (social login)
+    - reCAPTCHA protection
+    - Profile page with user details and edit options
 - Localization & Friendly URLs
-- Multi-language support using i18n
-- SEO-friendly URLs powered by FriendlyId
+    - Multi-language support using i18n
+    - SEO-friendly URLs powered by FriendlyId
 - Image Categorization & Navigation
-- Horizontal menu with:
-- Top 5 categories (sorted by images, likes, and comments)
-- All images, sorted by likes (20 per page)
-- All comments, sorted by date
-- Categories page with image filtering
+    - Horizontal menu with:
+        - Top 5 categories (sorted by images, likes, and comments)
+        - All images, sorted by likes
+        - All comments, sorted by date
+    - Categories page with image filtering
 - Scraping & Background Jobs
-- Image extraction from URLs using Nokogiri (admin panel)
-- Background jobs using Resque (email notifications)
-- Email notifications for:
-- New user registration
-- New image in a subscribed category
-- New category subscription
-
+    - Image extraction from URLs using Nokogiri (admin panel)
+    - Background jobs using Resque (email notifications)
+    - Email notifications for:
+        - New user registration
+        - New image in a subscribed category
+        - New category subscription
 - Real-time Features & Deployment
-- Evaluate ActionCable for real-time updates
-- Deploy to Heroku
+    - Evaluate ActionCable for real-time updates
+    - Deploy to Heroku
 
 
 
