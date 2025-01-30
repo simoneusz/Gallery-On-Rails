@@ -75,13 +75,14 @@ A powerful image gallery application built with Ruby on Rails, featuring user au
 
 ## 🚀 Installation & Setup
 
-1. git clone git@github.com:simoneusz/Gallery-On-Rails.git
-2. cd Gallery-On-Rails
-3. bundle install
-4. rails db:create db:migrate db:seed
-5. rake app:migrate_images
-6. rails server
-
+```
+git clone git@github.com:simoneusz/Gallery-On-Rails.git
+cd Gallery-On-Rails
+bundle install
+rails db:create db:migrate db:seed
+rake app:migrate_images
+rails server
+```
 ## 🛠 Development & Contribution
 
 1. Fork the repository
