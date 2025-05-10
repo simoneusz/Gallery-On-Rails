@@ -6,7 +6,7 @@ ruby '3.3.6'
 
 gem 'pg', '~> 1.1'
 gem 'puma', '>= 5.0'
-gem 'rails', '~> 8.0.0'
+gem 'rails', '~> 8.0.1'
 gem 'sqlite3'
 
 # Frontend, assets
